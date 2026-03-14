@@ -172,6 +172,149 @@
     box-shadow: 0 12px 32px rgba(124,111,247,0.55);
   }
   .start-btn:active { transform: translateY(0) scale(0.98); }
+  /* LANGUAGE SELECTOR */
+  .lang-row {
+    display: flex; gap: 10px; justify-content: center; margin-bottom: 24px;
+  }
+  .lang-btn {
+    flex: 1; padding: 11px 8px;
+    border-radius: var(--radius-sm);
+    border: 1.5px solid var(--glass-border);
+    background: var(--surface2);
+    color: var(--text2);
+    font-size: 0.97rem; font-weight: 600;
+    cursor: pointer; font-family: inherit;
+    transition: all 0.22s cubic-bezier(0.34,1.56,0.64,1);
+    letter-spacing: 0.5px;
+  }
+  .lang-btn:hover {
+    border-color: var(--accent); background: rgba(124,111,247,0.15);
+    color: var(--accent2); transform: scale(1.04);
+  }
+  .lang-btn.selected {
+    border-color: var(--gold);
+    background: linear-gradient(135deg, rgba(245,200,66,0.15), rgba(124,111,247,0.1));
+    color: var(--gold);
+    box-shadow: 0 0 18px rgba(245,200,66,0.2);
+    transform: scale(1.02);
+  }
+  .lang-divider {
+    text-align: center; color: var(--text2); font-size: 0.8rem;
+    margin-bottom: 14px; letter-spacing: 1px;
+  }
+
+  .rules-btn {
+    width: 100%;
+    padding: 13px;
+    border-radius: var(--radius-pill);
+    border: 1.5px solid rgba(124,111,247,0.4);
+    background: rgba(124,111,247,0.08);
+    color: var(--accent2);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.34,1.56,0.64,1);
+    font-family: inherit;
+    letter-spacing: 0.5px;
+    margin-bottom: 14px;
+  }
+  .rules-btn:hover {
+    background: rgba(124,111,247,0.2);
+    border-color: var(--accent);
+    box-shadow: 0 4px 16px rgba(124,111,247,0.25);
+    transform: translateY(-2px);
+  }
+  /* RULES SLIDES */
+  .rules-slide { animation: slideIn 0.3s ease; }
+  @keyframes slideIn { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+  .rules-slide-title {
+    font-size: 1.2rem; font-weight: 700; color: var(--gold);
+    margin-bottom: 18px; padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .rules-slide ul { list-style: none; padding: 0; margin: 0; }
+  .rules-slide ul li {
+    padding: 9px 22px 9px 0;
+    font-size: 0.95rem; line-height: 1.65; color: var(--text);
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    position: relative;
+  }
+  .rules-slide ul li:last-child { border-bottom: none; }
+  .rules-slide ul li::before {
+    content: '◆'; position: absolute; right: 0;
+    color: var(--accent); font-size: 0.55rem; top: 14px;
+  }
+  .slide-header-row {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 18px;
+  }
+  .slide-num-badge {
+    font-size: 0.78rem; color: var(--text2);
+    background: var(--surface); padding: 3px 11px;
+    border-radius: var(--radius-pill); border: 1px solid var(--glass-border);
+  }
+  .slide-close-btn {
+    background: none; border: none; color: var(--text2);
+    cursor: pointer; font-size: 1.1rem; padding: 4px 8px;
+    border-radius: 8px; transition: color 0.2s, background 0.2s;
+  }
+  .slide-close-btn:hover { color: var(--text); background: rgba(255,255,255,0.06); }
+  .rules-nav {
+    display: flex; align-items: center;
+    justify-content: space-between; margin-top: 22px; gap: 10px;
+  }
+  .rules-nav-btn {
+    padding: 9px 18px; border-radius: var(--radius-pill);
+    border: 1.5px solid var(--glass-border);
+    background: rgba(255,255,255,0.04);
+    color: var(--text2); font-size: 0.9rem; font-weight: 600;
+    cursor: pointer; font-family: inherit;
+    transition: all 0.2s ease; white-space: nowrap;
+  }
+  .rules-nav-btn:hover:not(:disabled) {
+    border-color: var(--accent); color: var(--accent2);
+    background: rgba(124,111,247,0.1);
+  }
+  .rules-nav-btn:disabled { opacity: 0.25; cursor: default; }
+  .rules-nav-btn.finish {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #fff; border-color: transparent;
+    box-shadow: 0 4px 14px rgba(124,111,247,0.4);
+  }
+  .rules-nav-btn.finish:hover:not(:disabled) { transform: scale(1.03); background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff; }
+  .rules-dots { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }
+  .rules-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--glass-border); cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .rules-dot.active { background: var(--gold); transform: scale(1.35); }
+
+  /* DIFFICULTY SCREEN */
+  .difficulty-row {
+    display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+  }
+  .diff-card {
+    flex: 1; min-width: 90px; max-width: 150px;
+    background: var(--surface2); border: 2px solid var(--border);
+    border-radius: var(--radius-md); padding: 20px 12px 16px;
+    cursor: pointer; transition: all 0.22s; text-align: center;
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+  }
+  .diff-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+  .diff-card.selected { transform: translateY(-3px); }
+  .diff-card.easy.selected   { border-color: var(--green);  background: rgba(6,214,160,0.1); }
+  .diff-card.medium.selected { border-color: var(--gold);   background: rgba(245,200,66,0.1); }
+  .diff-card.hard.selected   { border-color: var(--red);    background: rgba(239,69,101,0.1); }
+  .diff-card:hover.easy      { border-color: var(--green); }
+  .diff-card:hover.medium    { border-color: var(--gold);  }
+  .diff-card:hover.hard      { border-color: var(--red);   }
+  .diff-stars { font-size: 1.3rem; line-height: 1; }
+  .diff-name  { font-size: 1rem; font-weight: 700; color: var(--text); }
+  .diff-desc  { font-size: 0.75rem; color: var(--text2); line-height: 1.4; }
+  .diff-card.easy.selected   .diff-name { color: var(--green); }
+  .diff-card.medium.selected .diff-name { color: var(--gold);  }
+  .diff-card.hard.selected   .diff-name { color: var(--red);   }
 
   /* GAME SCREEN */
   #game-screen {
@@ -466,6 +609,15 @@
   .cell-flip {
     animation: cellFlip 0.55s cubic-bezier(0.34,1.56,0.64,1) forwards;
   }
+  .cell-hint {
+    box-shadow: 0 0 0 3px var(--gold), 0 0 20px rgba(245,200,66,0.5) !important;
+    animation: hintPulse 0.9s ease-in-out infinite alternate !important;
+    z-index: 2; position: relative;
+  }
+  @keyframes hintPulse {
+    from { box-shadow: 0 0 0 2px var(--gold), 0 0 8px rgba(245,200,66,0.4); }
+    to { box-shadow: 0 0 0 5px var(--gold), 0 0 28px rgba(245,200,66,0.7); }
+  }
   @keyframes cellFlip {
     0% { transform: rotateY(0deg) scale(1); }
     40% { transform: rotateY(90deg) scale(0.9); opacity: 0.4; }
@@ -620,9 +772,37 @@
     letter-spacing: 0.5px;
   }
   .result-desc {
-    font-size: 0.97rem; text-align: center; color: var(--text2); margin-bottom: 22px; line-height: 1.65;
+    font-size: 0.97rem; text-align: center; color: var(--text2); margin-bottom: 14px; line-height: 1.65;
     font-weight: 300;
   }
+  .bonus-note {
+    display: none;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-sm);
+    padding: 11px 16px;
+    font-size: 0.87rem;
+    color: var(--text2);
+    line-height: 1.6;
+    margin-bottom: 18px;
+    text-align: right;
+    position: relative;
+    padding-right: 36px;
+  }
+  .bonus-note::before {
+    content: 'ℹ';
+    position: absolute;
+    right: 12px;
+    top: 11px;
+    font-size: 0.95rem;
+    color: var(--accent2);
+    font-style: normal;
+  }
+  .bonus-note.visible { display: block; }
+  .bonus-note.positive { border-color: rgba(6,214,160,0.3); background: rgba(6,214,160,0.06); }
+  .bonus-note.positive::before { color: var(--green); }
+  .bonus-note.negative { border-color: rgba(239,69,101,0.3); background: rgba(239,69,101,0.06); }
+  .bonus-note.negative::before { color: var(--red); }
   .result-score-delta {
     font-size: 2.2rem; font-weight: 900; text-align: center; margin-bottom: 22px;
     letter-spacing: 1px;
@@ -861,27 +1041,206 @@
     80% { opacity: 0.8; }
     100% { transform: translateY(100vh) rotate(720deg) scale(0.5); opacity: 0; }
   }
+
+  /* ===== LOBBY / WAITING SCREENS ===== */
+  .lobby-card {
+    background: var(--surface);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    padding: 36px 32px;
+    max-width: 420px;
+    width: 90%;
+    margin: 0 auto;
+    backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    text-align: center;
+  }
+  .lobby-card h2 { font-size: 1.5rem; font-weight: 700; color: var(--text); margin: 0; }
+  .lobby-divider {
+    font-size: 0.78rem; color: var(--text2); letter-spacing: 0.08em;
+    text-transform: uppercase; margin: 4px 0 0;
+  }
+  .lobby-name-input, .lobby-code-input {
+    width: 100%; box-sizing: border-box;
+    background: rgba(255,255,255,0.06); border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md); color: var(--text); font-family: 'Heebo', sans-serif;
+    font-size: 1rem; padding: 12px 16px; outline: none; text-align: center;
+    direction: ltr; letter-spacing: 0.1em;
+  }
+  .lobby-code-input { font-size: 1.3rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; }
+  .lobby-name-input { direction: rtl; letter-spacing: normal; }
+  .lobby-name-input:focus, .lobby-code-input:focus { border-color: var(--accent); }
+  .lobby-btn {
+    width: 100%; padding: 14px; border: none; border-radius: var(--radius-md);
+    font-family: 'Heebo', sans-serif; font-size: 1rem; font-weight: 700;
+    cursor: pointer; transition: all 0.2s;
+  }
+  .lobby-btn.primary { background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff; }
+  .lobby-btn.primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(124,111,247,0.4); }
+  .lobby-btn.secondary { background: var(--surface2); color: var(--text2); border: 1px solid var(--glass-border); }
+  .lobby-btn.secondary:hover { color: var(--text); border-color: var(--accent); }
+  .lobby-btn.solo { background: rgba(255,255,255,0.04); color: var(--text2); border: 1px solid var(--border); font-size: 0.9rem; padding: 11px; }
+  .lobby-btn.solo:hover { color: var(--text); }
+  .lobby-sep { display: flex; align-items: center; gap: 10px; }
+  .lobby-sep::before, .lobby-sep::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .lobby-sep span { color: var(--text2); font-size: 0.8rem; white-space: nowrap; }
+
+  /* Waiting room */
+  .room-code-display {
+    font-size: 2.8rem; font-weight: 900; letter-spacing: 0.3em;
+    color: var(--gold); text-align: center; font-family: monospace;
+    background: rgba(245,200,66,0.08); border: 2px solid rgba(245,200,66,0.3);
+    border-radius: var(--radius-md); padding: 18px 24px;
+    cursor: pointer; transition: all 0.2s; direction: ltr;
+  }
+  .room-code-display:hover { background: rgba(245,200,66,0.15); }
+  .room-code-hint { font-size: 0.78rem; color: var(--text2); margin-top: 4px; }
+  .waiting-player-list { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+  .waiting-player-item {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--surface2); border: 1px solid var(--border);
+    border-radius: var(--radius-sm); padding: 10px 14px;
+  }
+  .waiting-player-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .waiting-player-name { font-weight: 600; color: var(--text); flex: 1; }
+  .waiting-player-tag { font-size: 0.75rem; color: var(--text2); }
+  .waiting-status { color: var(--text2); font-size: 0.9rem; text-align: center; }
+  @keyframes pulse-dot { 0%,100%{opacity:1} 50%{opacity:0.4} }
+  .waiting-pulse { animation: pulse-dot 1.4s ease-in-out infinite; }
+
+  /* Turn banner */
+  .turn-banner {
+    text-align: center; padding: 8px 20px; border-radius: var(--radius-pill);
+    font-weight: 700; font-size: 0.92rem; margin-bottom: 8px;
+    transition: all 0.4s;
+  }
+  .turn-banner.my-turn {
+    background: linear-gradient(135deg, rgba(6,214,160,0.18), rgba(6,214,160,0.08));
+    border: 1px solid rgba(6,214,160,0.4); color: var(--green);
+    animation: myTurnPulse 1.8s ease-in-out infinite;
+  }
+  .turn-banner.their-turn {
+    background: var(--surface2); border: 1px solid var(--border); color: var(--text2);
+  }
+  @keyframes myTurnPulse {
+    0%,100%{ box-shadow: 0 0 0 0 rgba(6,214,160,0); }
+    50%{ box-shadow: 0 0 0 6px rgba(6,214,160,0.12); }
+  }
+
+  /* Reconnect banner */
+  .reconnect-banner {
+    background: rgba(124,111,247,0.12); border: 1px solid rgba(124,111,247,0.3);
+    border-radius: var(--radius-md); padding: 12px 16px;
+    display: flex; align-items: center; gap: 12px; margin-bottom: 8px;
+    cursor: pointer; transition: all 0.2s;
+  }
+  .reconnect-banner:hover { background: rgba(124,111,247,0.2); }
+  .reconnect-banner span { color: var(--text2); font-size: 0.88rem; flex: 1; }
+  .reconnect-banner strong { color: var(--accent2); }
 </style>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
 </head>
 <body>
 
 <div class="stars" id="stars"></div>
 <div class="toast-container" id="toastContainer"></div>
 
+<!-- LOBBY SCREEN -->
+<div class="screen active" id="lobby-screen">
+  <div class="logo">המשבצת</div>
+  <div class="logo-sub">משחק טריוויה ואסטרטגיה</div>
+  <div class="lobby-card">
+    <h2>🎮 בחר מצב משחק</h2>
+    <div id="reconnectBanner" style="display:none" class="reconnect-banner" onclick="reconnectGame()">
+      <span>↩️ <strong id="reconnectCode"></strong> — חזור למשחק שהתחלת</span>
+    </div>
+    <div class="lobby-divider">שמך</div>
+    <input class="lobby-name-input" id="lobbyNameInput" type="text" placeholder="הכנס את שמך" maxlength="20" />
+    <button class="lobby-btn primary" onclick="createRoom()">➕ צור חדר מרובה מכשירים</button>
+    <div class="lobby-sep"><span>או הצטרף לחדר קיים</span></div>
+    <input class="lobby-code-input" id="joinCodeInput" type="text" placeholder="ABC123" maxlength="6" />
+    <button class="lobby-btn secondary" onclick="joinRoom()">🔗 הצטרף לחדר</button>
+    <div class="lobby-sep"><span>רוצה לשחק במכשיר אחד?</span></div>
+    <button class="lobby-btn solo" onclick="playSolo()">📱 שחק לבד / העבר מכשיר בין שחקנים</button>
+  </div>
+</div>
+
+<!-- WAITING ROOM SCREEN -->
+<div class="screen" id="waiting-screen">
+  <div class="logo">המשבצת</div>
+  <div class="logo-sub">ממתין לשחקנים</div>
+  <div class="lobby-card">
+    <h2>🏠 חדר המתנה</h2>
+    <div>
+      <div class="room-code-display" id="waitingRoomCode" onclick="copyRoomCode()">------</div>
+      <div class="room-code-hint">לחץ להעתקה · שתף את הקוד עם השחקנים האחרים</div>
+    </div>
+    <div>
+      <div class="lobby-divider">שחקנים מחוברים</div>
+      <div class="waiting-player-list" id="waitingPlayerList"></div>
+    </div>
+    <div id="hostStartSection">
+      <button class="lobby-btn primary" onclick="startGameFromHost()" id="hostStartBtn" disabled>🎮 התחל משחק! (ממתין לשחקנים…)</button>
+    </div>
+    <div id="guestWaitSection" style="display:none" class="waiting-status">
+      <span class="waiting-pulse">⏳</span> ממתין למארח שיתחיל את המשחק…
+    </div>
+    <button class="lobby-btn solo" onclick="showScreen('lobby-screen')" style="margin-top:4px">← חזרה</button>
+  </div>
+</div>
+
 <!-- SETUP SCREEN -->
-<div class="screen active" id="setup-screen">
+<div class="screen" id="setup-screen">
   <div class="logo">המשבצת</div>
   <div class="logo-sub">משחק טריוויה ואסטרטגיה</div>
   <div class="setup-card">
     <h2>הגדרות משחק</h2>
-    <div style="margin-bottom:16px;text-align:center;color:var(--text2);font-size:0.95rem;">בחרו מספר שחקנים</div>
+    <div class="lang-divider">שפת המשחק</div>
+    <div class="lang-row">
+      <button class="lang-btn selected" id="langHe" onclick="setLang('he')">🇮🇱 עברית</button>
+      <button class="lang-btn" id="langEn" onclick="setLang('en')">🇬🇧 English</button>
+    </div>
+    <div class="lang-divider">מספר שחקנים</div>
     <div class="player-count-row">
+      <button class="count-btn" onclick="setPlayerCount(1)">1</button>
       <button class="count-btn selected" onclick="setPlayerCount(2)">2</button>
       <button class="count-btn" onclick="setPlayerCount(3)">3</button>
       <button class="count-btn" onclick="setPlayerCount(4)">4</button>
     </div>
     <div class="player-inputs" id="playerInputs"></div>
-    <button class="start-btn" onclick="startGame()">🎮 התחילו לשחק</button>
+    <button class="rules-btn" onclick="openRulesModal()">📖 הוראות המשחק</button>
+    <button class="start-btn" onclick="showDifficultyScreen()">🎮 המשך לבחירת קושי</button>
+  </div>
+</div>
+
+<!-- DIFFICULTY SCREEN -->
+<div class="screen" id="difficulty-screen">
+  <div class="logo" id="diffLogo">המשבצת</div>
+  <div class="logo-sub" id="diffSub">בחרו רמת קושי</div>
+  <div class="setup-card">
+    <h2 id="diffTitle">🎯 רמת קושי</h2>
+    <div class="difficulty-row" style="margin-bottom:12px">
+      <div class="diff-card easy" onclick="setDifficulty('easy')" id="diffEasy">
+        <div class="diff-stars">⭐</div>
+        <div class="diff-name" id="diffEasyName">קל</div>
+        <div class="diff-desc" id="diffEasyDesc">שאלות פשוטות, מילות פרס נפוצות</div>
+      </div>
+      <div class="diff-card medium selected" onclick="setDifficulty('medium')" id="diffMedium">
+        <div class="diff-stars">⭐⭐</div>
+        <div class="diff-name" id="diffMediumName">בינוני</div>
+        <div class="diff-desc" id="diffMediumDesc">שאלות על כל הנושאים</div>
+      </div>
+      <div class="diff-card hard" onclick="setDifficulty('hard')" id="diffHard">
+        <div class="diff-stars">⭐⭐⭐</div>
+        <div class="diff-name" id="diffHardName">קשה</div>
+        <div class="diff-desc" id="diffHardDesc">לאמיצים בלבד — שאלות מאתגרות</div>
+      </div>
+    </div>
+    <button class="start-btn" onclick="startGame()" id="diffStartBtn">🎮 התחילו לשחק</button>
+    <button class="lobby-btn solo" id="diffBackBtn" onclick="showScreen('setup-screen')" style="margin-top:8px">← חזרה</button>
   </div>
 </div>
 
@@ -889,11 +1248,12 @@
 <div class="screen" id="game-screen">
   <div class="game-header">
     <div class="game-title">המשבצת</div>
-    <div class="current-turn-badge" id="turnBadge">תור: <span id="currentPlayerName">-</span></div>
+    <div class="current-turn-badge" id="turnBadge"><span id="turnLabel">תור:</span> <span id="currentPlayerName">-</span></div>
   </div>
+  <div class="turn-banner their-turn" id="turnBanner" style="display:none"></div>
   <!-- Prize word -->
   <div class="prize-word-section">
-    <div class="prize-label">מילת הפרס</div>
+    <div class="prize-label" id="prizeLabelEl">מילת הפרס</div>
     <div class="prize-boxes" id="prizeBoxes"></div>
     <button class="guess-btn" id="guessWordBtn" onclick="openGuessModal()">נסה לנחש את המילה</button>
   </div>
@@ -911,7 +1271,7 @@
   <div class="win-title" id="winTitle">!מנצח</div>
   <div class="win-subtitle" id="winSubtitle"></div>
   <div class="final-scores" id="finalScores"></div>
-  <button class="play-again-btn" onclick="playAgain()">משחק חדש</button>
+  <button class="play-again-btn" id="playAgainBtn" onclick="playAgain()">משחק חדש</button>
 </div>
 
 <!-- QUESTION MODAL -->
@@ -923,7 +1283,7 @@
     </div>
     <div class="modal-question" id="qText"></div>
     <div class="timer-bar-wrap"><div class="timer-bar" id="timerBar"></div></div>
-    <div class="timer-text" id="timerText">20</div>
+    <div class="timer-text" id="timerText">15</div>
     <button class="swap-btn" id="swapBtn" onclick="useSwap()" style="display:none">🔄 החלף שאלה (השתמש בכוח)</button>
     <div class="options-grid" id="optionsGrid"></div>
   </div>
@@ -936,6 +1296,7 @@
     <div class="result-title" id="resultTitle"></div>
     <div class="result-score-delta" id="resultDelta"></div>
     <div class="result-desc" id="resultDesc"></div>
+    <div class="bonus-note" id="bonusNote"></div>
     <button class="result-btn" id="resultBtn" onclick="closeResult()">המשך</button>
   </div>
 </div>
@@ -943,11 +1304,11 @@
 <!-- GUESS MODAL -->
 <div class="modal-overlay" id="guessModal">
   <div class="modal">
-    <div style="font-size:1.2rem;font-weight:700;margin-bottom:16px;color:var(--gold)">ניחוש מילת הפרס</div>
-    <div style="font-size:0.9rem;color:var(--text2);margin-bottom:16px;">המשך מצית +50 נקודות! ניחוש שגוי = מחיקה</div>
+    <div id="guessModalTitle" style="font-size:1.2rem;font-weight:700;margin-bottom:16px;color:var(--gold)">ניחוש מילת הפרס</div>
+    <div id="guessModalHint" style="font-size:0.9rem;color:var(--text2);margin-bottom:16px;">ניחוש נכון מזכה ב-+50 נקודות! ניחוש שגוי = מחיקה</div>
     <input class="guess-input" id="guessInput" type="text" placeholder="הקלד את המילה..." maxlength="10">
-    <button class="guess-submit" onclick="submitGuess()">שלח ניחוש</button>
-    <button class="guess-cancel" onclick="closeGuessModal()">ביטול</button>
+    <button class="guess-submit" id="guessSubmitBtn" onclick="submitGuess()">שלח ניחוש</button>
+    <button class="guess-cancel" id="guessCancelBtn" onclick="closeGuessModal()">ביטול</button>
   </div>
 </div>
 
@@ -957,6 +1318,22 @@
     <div class="power-title">כוחות מיוחדים</div>
     <div class="power-list" id="powerList"></div>
     <button class="power-cancel-btn" onclick="closePowersModal()">ביטול</button>
+  </div>
+</div>
+
+<!-- RULES MODAL -->
+<div class="modal-overlay" id="rulesModal">
+  <div class="modal" style="max-width:560px">
+    <div class="slide-header-row">
+      <span class="slide-num-badge" id="slideNum">1 / 8</span>
+      <button class="slide-close-btn" onclick="closeRulesModal()">✕</button>
+    </div>
+    <div id="rulesContent"></div>
+    <div class="rules-nav">
+      <button class="rules-nav-btn" id="prevBtn" disabled>→ הקודם</button>
+      <div class="rules-dots" id="rulesDots"></div>
+      <button class="rules-nav-btn" id="nextBtn">הבא ←</button>
+    </div>
   </div>
 </div>
 
@@ -974,14 +1351,41 @@
 </div>
 
 <script>
+// ===================== FIREBASE CONFIG =====================
+// 🔧 מלא את הפרטים שקיבלת מ-Firebase Console → Project Settings → Your apps → Web
+const FIREBASE_CONFIG = {
+  apiKey: "AIzaSyB5PQTdRJ8CQ39Nkw0ltAGqihmJL8LktgA",
+  authDomain: "the-square-f0619.firebaseapp.com",
+  databaseURL: "https://the-square-f0619-default-rtdb.firebaseio.com",
+  projectId: "the-square-f0619",
+  storageBucket: "the-square-f0619.firebasestorage.app",
+  messagingSenderId: "920355478083",
+  appId: "1:920355478083:web:d5079b49c81ae85f4dd2f6",
+  measurementId: "G-5YSFE6FNVG"
+};
+
+let db = null;
+try {
+  firebase.initializeApp(FIREBASE_CONFIG);
+  db = firebase.database();
+} catch(e) {
+  console.warn('Firebase not configured — running in offline/solo mode only.');
+}
+
 // ===================== DATA =====================
 const PLAYER_COLORS = ['#e74c3c','#3498db','#2ecc71','#f39c12'];
 const PLAYER_COLORS_SOFT = ['rgba(231,76,60,0.2)','rgba(52,152,219,0.2)','rgba(46,204,113,0.2)','rgba(243,156,18,0.2)'];
 
 const PRIZE_WORDS = {
-  5: ['ישראל','חברים','תכנות','ילדות'],
-  6: ['כדורגל','מכונית','קולנוע','בנימין'],
-  7: ['ירושלים','אינטרנט','אוטובוס']
+  5: ['ישראל','חברים','תכנות','ילדות','גיבור','תמונה','מדינה','ספינה','שיעור','מצרים','בריאה','חיפוש','נגינה','אופנה','כוכבת'],
+  6: ['כדורגל','מכונית','קולנוע','בנימין','מוסיקה','אורחים','חיילים','מנהיגה','מטבעות','גשרים','ממלכה','שוקולד','פרחים'],
+  7: ['ירושלים','אינטרנט','אוטובוס','קיבוצים','מדבריות','לאומיות','מוזיאון','מנהיגים','סיפורים','גיבורים']
+};
+
+const PRIZE_WORDS_EN = {
+  5: ['BRAIN','CHESS','DANCE','EAGLE','FLAME','GHOST','HEART','LIGHT','MUSIC','NIGHT','OCEAN','PEACE','QUEEN','RIVER','SMILE','TIGER','UNION','VOICE','WATER','WORLD','CLOCK','DREAM','FROST','GRACE','HONEY','JUDGE','KNEEL','LASER','MAPLE','NERVE'],
+  6: ['BRIDGE','CASTLE','DESERT','ESCAPE','FLOWER','GARDEN','HUNTER','ISLAND','JUNGLE','KNIGHT','MARKET','NEEDLE','ORANGE','PALACE','ROCKET','SCHOOL','TEMPLE','WIZARD','BOTTLE','CIRCLE','CAMERA','DOLLAR','ENGINE','FOREST','GOLDEN'],
+  7: ['AIRPORT','BLANKET','CHICKEN','DIAMOND','FREEDOM','GIRAFFE','HOLIDAY','ICEBERG','KITCHEN','LANTERN','MYSTERY','PASSION','RAINBOW','STADIUM','VILLAGE','WEATHER','CAPTAIN','DOLPHIN','ENGLISH','FANTASY']
 };
 
 const TRIVIA = [
@@ -1034,25 +1438,332 @@ const TRIVIA = [
   {q:"מה בירת איטליה?", opts:["מילאנו","נפולי","רומא","פירנצה"], ans:2},
   {q:"מי המציא את הרדיו?", opts:["אדיסון","מרקוני","טסלה","בל"], ans:1},
   {q:"מה סמל קנדה?", opts:["דב","עץ אורן","עלה מייפל","בובר"], ans:2},
-  {q:"כמה שניות יש בדקה?", opts:["30","60","100","120"], ans:1}
+  {q:"כמה שניות יש בדקה?", opts:["30","60","100","120"], ans:1},
+  {q:"מה עיר הבירה של פולין?", opts:["קרקוב","ורשה","גדנסק","לודז'"], ans:1},
+  {q:"מה שם הנהר הזורם דרך לונדון?", opts:["סן","תמזה","טיבר","ריין"], ans:1},
+  {q:"כמה שחקנים יש בקבוצת כדורעף?", opts:["5","6","7","8"], ans:1},
+  {q:"מי גילה את אמריקה לפי ההיסטוריה המסורתית?", opts:["ואסקו דה גאמה","קולומבוס","מגלן","אמריגו וספוצ'י"], ans:1},
+  {q:"כמה ק\"ג יש בטון?", opts:["100","500","1000","2000"], ans:2},
+  {q:"מה שם הבניין הגבוה ביותר בעולם?", opts:["אמפייר סטייט","מגדל אייפל","בורג' ח'ליפה","מגדלי פטרונס"], ans:2},
+  {q:"באיזו מדינה נמצאת חומת סין הגדולה?", opts:["יפן","קוריאה","סין","מונגוליה"], ans:2},
+  {q:"כמה אצבעות יש ביד אדם?", opts:["4","5","6","10"], ans:1},
+  {q:"מה בירת קנדה?", opts:["טורונטו","מונטריאול","ונקובר","אוטווה"], ans:3},
+  {q:"מי צייר את תקרת הכנסייה הסיסטינית?", opts:["רפאל","דה וינצ'י","מיכלאנג'לו","בוטיצ'לי"], ans:2},
+  {q:"מה שם הנהר הארוך ביותר בישראל?", opts:["הירמוך","הכנרת","הירדן","הקישון"], ans:2},
+  {q:"מה המספר האטומי של חמצן?", opts:["6","7","8","9"], ans:2},
+  {q:"כמה תקופות יש במשחק בייסבול?", opts:["7","8","9","10"], ans:2},
+  {q:"מה בירת מקסיקו?", opts:["גוודלחרה","מקסיקו סיטי","מונטריי","קנקון"], ans:1},
+  {q:"מי כתב את 'המשפט'?", opts:["קאמי","קפקא","סארטר","קונאן דויל"], ans:1},
+  {q:"כמה חדרים יש בלב האדם?", opts:["2","3","4","5"], ans:2},
+  {q:"מה החיה היבשתית המהירה ביותר?", opts:["אריה","ברדלס","נמר","סוס"], ans:1},
+  {q:"כמה כוכבי לכת יש במערכת השמש?", opts:["7","8","9","10"], ans:1},
+  {q:"מה הגז שצמחים קולטים מהאוויר?", opts:["חמצן","חנקן","פחמן דו-חמצני","מימן"], ans:2},
+  {q:"מי היה האדם הראשון על הירח?", opts:["באז אולדרין","ניל ארמסטרונג","יורי גגרין","ג'ון גלן"], ans:1},
+  {q:"מה החומר הקשה ביותר בטבע?", opts:["זהב","ברזל","יהלום","קוורץ"], ans:2},
+  {q:"באיזו מדינה נמצא מגדל אייפל?", opts:["איטליה","אנגליה","צרפת","ספרד"], ans:2},
+  {q:"כמה צלעות יש למשולש?", opts:["2","3","4","5"], ans:1},
+  {q:"מה הקוף הגדול ביותר בעולם?", opts:["שימפנזה","בבון","גורילה","אורנג-אוטן"], ans:2},
+  {q:"כמה ימים יש בחודש פברואר בשנה רגילה?", opts:["27","28","29","30"], ans:1},
+  {q:"מי פיתח את תורת היחסות?", opts:["ניוטון","בוהר","איינשטיין","הוקינג"], ans:2},
+  {q:"כמה נגני קלאסי יש בקוורטט מיתרים?", opts:["2","3","4","5"], ans:2},
+  {q:"מה בירת הודו?", opts:["מומבאי","קולקטה","ניו דלהי","בנגלור"], ans:2},
+  {q:"מי כתב את 'הנסיך הקטן'?", opts:["ג'ול ורן","אנטואן דה סנט-אקסופרי","ויקטור הוגו","אלכסנדר דיומא"], ans:1}
+];
+
+const TRIVIA_EN = [
+  {q:"What is the capital of France?", opts:["London","Paris","Berlin","Rome"], ans:1},
+  {q:"How many sides does a hexagon have?", opts:["4","5","6","8"], ans:2},
+  {q:"Who wrote Harry Potter?", opts:["J.R.R. Tolkien","J.K. Rowling","Roald Dahl","Stephen King"], ans:1},
+  {q:"What is the longest river in the world?", opts:["Amazon","Nile","Mississippi","Volga"], ans:1},
+  {q:"How many legs does a spider have?", opts:["6","8","10","4"], ans:1},
+  {q:"What is the capital of Japan?", opts:["Shanghai","Beijing","Tokyo","Seoul"], ans:2},
+  {q:"Who painted the Mona Lisa?", opts:["Michelangelo","Leonardo da Vinci","Raphael","Botticelli"], ans:1},
+  {q:"How many players are in a soccer team?", opts:["9","10","11","12"], ans:2},
+  {q:"What is the chemical symbol for gold?", opts:["Ag","Fe","Au","Cu"], ans:2},
+  {q:"Who was the first US president?", opts:["Abraham Lincoln","Thomas Jefferson","George Washington","John Adams"], ans:2},
+  {q:"How many strings does a standard guitar have?", opts:["4","5","6","7"], ans:2},
+  {q:"What is the largest ocean on Earth?", opts:["Atlantic","Indian","Pacific","Arctic"], ans:2},
+  {q:"Who wrote Romeo and Juliet?", opts:["Marlowe","Shakespeare","Joyce","Dickens"], ans:1},
+  {q:"What is the boiling point of water?", opts:["90°C","95°C","100°C","110°C"], ans:2},
+  {q:"What is the most abundant metal in Earth's crust?", opts:["Iron","Copper","Aluminum","Gold"], ans:2},
+  {q:"Who invented the telephone?", opts:["Edison","Marconi","Alexander Graham Bell","Einstein"], ans:2},
+  {q:"What is the capital of Brazil?", opts:["Rio de Janeiro","São Paulo","Brasília","Buenos Aires"], ans:2},
+  {q:"How many grams are in a kilogram?", opts:["100","500","1000","2000"], ans:2},
+  {q:"What is the largest planet in our solar system?", opts:["Saturn","Jupiter","Uranus","Neptune"], ans:1},
+  {q:"Who invented the light bulb?", opts:["Tesla","Marconi","Edison","Franklin"], ans:2},
+  {q:"What language did Mozart speak natively?", opts:["Italian","French","German","English"], ans:2},
+  {q:"What is the tallest bird in the world?", opts:["Eagle","Penguin","Ostrich","Flamingo"], ans:2},
+  {q:"What is the speed of light?", opts:["300,000 km/s","30,000 km/s","3,000,000 km/s","3,000 km/s"], ans:0},
+  {q:"Who invented the printing press?", opts:["Gutenberg","Columbus","Galileo","Da Vinci"], ans:0},
+  {q:"How many days are in a regular year?", opts:["360","364","365","366"], ans:2},
+  {q:"What is the capital of Spain?", opts:["Barcelona","Seville","Madrid","Valencia"], ans:2},
+  {q:"How many colors are in a rainbow?", opts:["5","6","7","8"], ans:2},
+  {q:"What is the capital of Italy?", opts:["Milan","Naples","Rome","Florence"], ans:2},
+  {q:"Who invented the radio?", opts:["Edison","Marconi","Tesla","Bell"], ans:1},
+  {q:"What is the symbol of Canada?", opts:["Bear","Pine tree","Maple leaf","Beaver"], ans:2},
+  {q:"How many seconds are in a minute?", opts:["30","60","100","120"], ans:1},
+  {q:"What is the largest continent?", opts:["Africa","North America","Asia","Europe"], ans:2},
+  {q:"How many teeth does an adult human have?", opts:["28","30","32","34"], ans:2},
+  {q:"What planet is closest to the Sun?", opts:["Venus","Earth","Mercury","Mars"], ans:2},
+  {q:"How many bones are in the human body?", opts:["100","150","206","300"], ans:2},
+  {q:"What is the capital of Australia?", opts:["Sydney","Melbourne","Canberra","Perth"], ans:2},
+  {q:"How many players per team in basketball?", opts:["4","5","6","7"], ans:1},
+  {q:"What is the capital of Germany?", opts:["Munich","Frankfurt","Berlin","Hamburg"], ans:2},
+  {q:"Who painted Starry Night?", opts:["Monet","Gauguin","Van Gogh","Renoir"], ans:2},
+  {q:"What is the largest country by area?", opts:["China","USA","Canada","Russia"], ans:3},
+  {q:"Who wrote 1984?", opts:["Aldous Huxley","George Orwell","Ray Bradbury","Philip Dick"], ans:1},
+  {q:"How many kilometers is one mile?", opts:["1","1.6","2","0.8"], ans:1},
+  {q:"Who built the Pyramids of Giza?", opts:["Romans","Persians","Ancient Egyptians","Greeks"], ans:2},
+  {q:"How many letters are in the English alphabet?", opts:["24","25","26","27"], ans:2},
+  {q:"What is the most spoken language in the world?", opts:["English","Spanish","Mandarin","Hindi"], ans:2},
+  {q:"What year did World War II end?", opts:["1943","1944","1945","1946"], ans:2},
+  {q:"What is the chemical formula for water?", opts:["CO2","NaCl","H2O","O2"], ans:2},
+  {q:"Who wrote War and Peace?", opts:["Dostoevsky","Tolstoy","Chekhov","Gogol"], ans:1},
+  {q:"How many continents are there?", opts:["5","6","7","8"], ans:2},
+  {q:"What is the fastest land animal?", opts:["Lion","Cheetah","Leopard","Horse"], ans:1},
+  {q:"How many planets are in our solar system?", opts:["7","8","9","10"], ans:1},
+  {q:"What gas do plants absorb from the air?", opts:["Oxygen","Nitrogen","Carbon dioxide","Hydrogen"], ans:2},
+  {q:"Who was the first man on the Moon?", opts:["Buzz Aldrin","Neil Armstrong","Yuri Gagarin","John Glenn"], ans:1},
+  {q:"What is the hardest natural substance?", opts:["Gold","Iron","Diamond","Quartz"], ans:2},
+  {q:"In which country is the Eiffel Tower?", opts:["Italy","UK","France","Spain"], ans:2},
+  {q:"How many sides does a triangle have?", opts:["2","3","4","5"], ans:1},
+  {q:"Who developed the theory of relativity?", opts:["Newton","Bohr","Einstein","Hawking"], ans:2},
+  {q:"What is the capital of Canada?", opts:["Toronto","Montreal","Vancouver","Ottawa"], ans:3},
+  {q:"What is the largest gorilla species?", opts:["Chimpanzee","Baboon","Mountain gorilla","Orangutan"], ans:2},
+  {q:"How many days does February have in a regular year?", opts:["27","28","29","30"], ans:1},
+  {q:"Who painted the Sistine Chapel ceiling?", opts:["Raphael","Da Vinci","Michelangelo","Botticelli"], ans:2},
+  {q:"What is the capital of India?", opts:["Mumbai","Kolkata","New Delhi","Bangalore"], ans:2},
+  {q:"Who wrote 'The Little Prince'?", opts:["Jules Verne","Antoine de Saint-Exupéry","Victor Hugo","Alexandre Dumas"], ans:1},
+  {q:"How many chambers does the human heart have?", opts:["2","3","4","5"], ans:2},
+  {q:"How many players are in a volleyball team?", opts:["5","6","7","8"], ans:1},
+  {q:"What is the tallest mountain in the world?", opts:["K2","Kangchenjunga","Mount Everest","Lhotse"], ans:2},
+  {q:"What country is famous for the fjords?", opts:["Sweden","Denmark","Finland","Norway"], ans:3},
+  {q:"How many innings are in a standard baseball game?", opts:["7","8","9","10"], ans:2},
+  {q:"What is the atomic number of oxygen?", opts:["6","7","8","9"], ans:2},
+  {q:"How many strings does a violin have?", opts:["3","4","5","6"], ans:1},
+  {q:"What ocean did the Titanic sink in?", opts:["Pacific","Indian","Atlantic","Arctic"], ans:2}
 ];
 
 const GREEN_SURPRISES = [
-  {name:"חיים נוספים", desc:"קבל חיים נוספים (מחק מחיקה אחת)"},
-  {name:"החלפת שאלה", desc:"החלף שאלה בפעם הבאה"},
-  {name:"הצצה לאות", desc:"הצץ לאות של שחקן אחר"},
-  {name:"החזרת אות", desc:"החזר אות שנשרפה"},
-  {name:"רמז כיוון", desc:"קבל רמז על מיקום אות במילה"}
+  {name:"חיים נוספים", name_en:"Extra Life", desc:"קבל חיים נוספים (מחק מחיקה אחת)", desc_en:"Remove one strike from your record", note:"כוח זה מוחק מחיקה אחת (X) מניקודך — כאילו אותה טעות לא התרחשה. ניתן להשתמש בו בכל עת שתור שלך מתחיל.", note_en:"This power removes one strike (X) from your record — as if that mistake never happened. Use it at the start of any of your turns."},
+  {name:"החלפת שאלה", name_en:"Swap Question", desc:"החלף שאלה בפעם הבאה", desc_en:"Swap the question next turn", note:"בתורך הבא תוכל לבקש שאלה חדשה במקום זו שנשאלת — בחר 'החלף שאלה' לפני שתתחיל לענות.", note_en:"On your next turn, you can request a new question instead of the one shown — tap 'Swap Question' before answering."},
+  {name:"הצצה לאות", name_en:"Peek at Letter", desc:"הצץ לאות של שחקן אחר", desc_en:"Peek at another player's revealed letter", note:"כוח זה מאפשר לך לראות אות שנחשפה לשחקן אחר בלבד — מידע יקר שיקרב אותך לנחש את מילת הפרס.", note_en:"This power lets you see a letter that only another player has revealed — valuable info to help you guess the prize word."},
+  {name:"החזרת אות", name_en:"Restore Letter", desc:"החזר אות שנשרפה", desc_en:"Restore a burned letter", note:"כוח זה מחזיר לחיים אות שנשרפה — האות תהפוך שוב לזמינה לכולם לצורך גילוי המילה.", note_en:"This power revives a burned letter — it becomes available again for everyone to reveal."},
+  {name:"רמז כיוון", name_en:"Direction Hint", desc:"מסמן 3 משבצות צמודות שאחת מהן היא משבצת אות", desc_en:"Highlights 3 adjacent cells, one of which is a letter cell", note:"3 משבצות יסומנו בזהב על הלוח — אחת מהן היא משבצת אות. הסימון יישמר 8 שניות, אחר-כך יעלם.", note_en:"3 cells are highlighted in gold — one of them is a letter cell. The highlight lasts 8 seconds, then disappears."}
 ];
 const RED_SURPRISES = [
-  {name:"הפסד נקודות", desc:"הפסד 10 נקודות"},
-  {name:"דילוג תור", desc:"דלג על התור הבא שלך"},
-  {name:"מהלך כפוי", desc:"יש לבחור משבצת אקראית בתור הבא"}
+  {name:"הפסד נקודות", name_en:"Lose Points", desc:"הפסד 10 נקודות", desc_en:"Lose 10 points", note:"עונש זה גורע 10 נקודות מניקודך הנוכחי. הניקוד לא ירד מתחת לאפס.", note_en:"This penalty deducts 10 points from your current score. Score won't go below zero."},
+  {name:"דילוג תור", name_en:"Skip Turn", desc:"דלג על התור הבא שלך", desc_en:"Lose your next turn", note:"עונש זה גורם לך לאבד את תורך הבא לחלוטין — השחקן אחריך ישחק ותצטרך להמתין לסיבוב הבא.", note_en:"This penalty causes you to lose your next turn entirely — the next player goes and you skip a round."},
+  {name:"מהלך כפוי", name_en:"Forced Move", desc:"יש לבחור משבצת אקראית בתור הבא", desc_en:"A random cell is chosen for you next turn", note:"עונש זה שולל ממך שליטה בתורך הבא — המשבצת תיבחר עבורך באקראי ולא תוכל לבחור בעצמך.", note_en:"This penalty takes away your choice next turn — a cell is picked randomly for you and you cannot choose yourself."}
 ];
+
+// ===================== DIFFICULTY QUESTION BANKS =====================
+const TRIVIA_HE_EASY = [
+  {q:"איזה צבע מתקבל כשמערבבים אדום וכחול?", opts:["ירוק","כתום","סגול","חום"], ans:2},
+  {q:"כמה ימים יש בשבוע?", opts:["5","6","7","8"], ans:2},
+  {q:"מה החיה הגדולה ביותר בעולם?", opts:["פיל","לוויתן כחול","ג'ירפה","כרישה לבנה"], ans:1},
+  {q:"כמה רגליים יש לחתול?", opts:["2","4","6","8"], ans:1},
+  {q:"מה צבע השמים ביום בהיר?", opts:["ירוק","צהוב","כחול","אדום"], ans:2},
+  {q:"מה בירת ישראל?", opts:["תל אביב","חיפה","ירושלים","באר שבע"], ans:2},
+  {q:"כמה חודשים יש בשנה?", opts:["10","11","12","13"], ans:2},
+  {q:"מה הפרי הצהוב שמכיל הרבה ויטמין C?", opts:["תפוח","לימון","אבטיח","ענב"], ans:1},
+  {q:"כמה פינות יש למשולש?", opts:["2","3","4","5"], ans:1},
+  {q:"מה הצליל שעושה כלב?", opts:["מיאו","קוקוריקו","נביחה","נהמה"], ans:2},
+  {q:"מה לבוש השוטרים בישראל?", opts:["לבן","ירוק","כחול","אדום"], ans:2},
+  {q:"איזה עונה מגיעה אחרי קיץ?", opts:["אביב","חורף","קיץ נוסף","סתיו"], ans:3},
+  {q:"כמה אצבעות יש לאדם בשתי הידיים?", opts:["8","9","10","12"], ans:2},
+  {q:"מה הצבע של עשב?", opts:["כחול","ירוק","צהוב","חום"], ans:1},
+  {q:"מה החיה שנותנת לנו חלב?", opts:["עוף","פרה","כלב","חתול"], ans:1},
+  {q:"כמה שניות יש בדקה?", opts:["30","45","60","90"], ans:2},
+  {q:"מה הכדור שמשחקים בו בכדורגל?", opts:["אדום","כחול","שחור-לבן","ירוק"], ans:2},
+  {q:"מה הצד שבו זורחת השמש?", opts:["מערב","צפון","מזרח","דרום"], ans:2},
+  {q:"כמה חוקים יש ב'אל תגע'?", opts:["1","2","3","אין"], ans:0},
+  {q:"מה האות הראשונה של האלפבית העברי?", opts:["בית","גימל","אלף","דלת"], ans:2},
+  {q:"כמה צדדים יש לריבוע?", opts:["3","4","5","6"], ans:1},
+  {q:"מה הצבע של שמש שוקעת?", opts:["כחול","לבן","כתום-אדום","שחור"], ans:2},
+  {q:"מה בית הגידול של הדג?", opts:["יבשה","מים","עצים","שמים"], ans:1},
+  {q:"כמה עיניים יש לאדם?", opts:["1","2","3","4"], ans:1},
+  {q:"מה הספרה שבאה אחרי 9?", opts:["10","11","19","20"], ans:0}
+];
+
+const TRIVIA_HE_HARD = [
+  {q:"בשנת כמה הוקמה מדינת ישראל?", opts:["1945","1947","1948","1949"], ans:2},
+  {q:"מה נוסחת מרחק-זמן-מהירות?", opts:["מ=ז×מה","מ=מה÷ז","מ=ז÷מה","ז=מ×מה"], ans:0},
+  {q:"מי כתב את 'מנוחה נכונה'?", opts:["ביאליק","שלונסקי","אלתרמן","לאה גולדברג"], ans:0},
+  {q:"מה המינרל הקשה ביותר?", opts:["ברזל","גרניט","יהלום","קוורץ"], ans:2},
+  {q:"כמה כרומוזומים יש לתא אנושי?", opts:["23","44","46","48"], ans:2},
+  {q:"מי אמר 'אני חושב, לכן אני קיים'?", opts:["קאנט","דקארט","פלטון","ניצשה"], ans:1},
+  {q:"מה הכוכב הקרוב ביותר לכדור הארץ?", opts:["פרוקסימה","אלפא צנטאורי","השמש","סיריוס"], ans:2},
+  {q:"מה הסמל הכימי של זהב?", opts:["Gl","Go","Au","Ag"], ans:2},
+  {q:"מה הנהר הארוך ביותר ביבשת אפריקה?", opts:["קונגו","זמבזי","ניגר","נילוס"], ans:3},
+  {q:"בכמה שנים הושלמה בניית הכותל הסיני?", opts:["100","500","1000","2000"], ans:3},
+  {q:"מה שמה של ראשת ממשלת ישראל הראשונה?", opts:["לא הייתה","גולדה מאיר","דבורה","מרים"], ans:1},
+  {q:"מה המספר האטומי של פחמן?", opts:["4","6","8","12"], ans:1},
+  {q:"מי הציג את תיאוריית ההתפתחות?", opts:["ניוטון","איינשטיין","דרווין","פסטר"], ans:2},
+  {q:"מה שטח ישראל בקירוב (קמ\"ר)?", opts:["12,000","22,000","30,000","50,000"], ans:1},
+  {q:"מה שמה של הצייה הגדולה ביותר בעולם?", opts:["גובי","קלהארי","ערב","סהרה"], ans:3},
+  {q:"כמה גרמים יש בקילוגרם?", opts:["100","500","1000","10000"], ans:2},
+  {q:"מה שם הפלנטה הרביעית מהשמש?", opts:["נגה","ארץ","מאדים","צדק"], ans:2},
+  {q:"מה ה-pH של מים טהורים?", opts:["5","6","7","8"], ans:2},
+  {q:"מי כתב את 'הנסיך הקטן'?", opts:["ז'ול ורן","סאנט-אקסופרי","בלזק","ויקטור הוגו"], ans:1},
+  {q:"כמה ממדים יש ל-DNA?", opts:["1","2","3","4"], ans:2},
+  {q:"בשנת כמה התחילה מלחמת יום הכיפורים?", opts:["1967","1970","1973","1976"], ans:2},
+  {q:"מה הכוח שמתאר חוק הכובד של ניוטון?", opts:["כוח חשמלי","כוח גרביטציה","כוח מגנטי","כוח גרעיני"], ans:1},
+  {q:"כמה שפות רשמיות יש בשווייץ?", opts:["2","3","4","5"], ans:2},
+  {q:"מה שם הגיבורה הראשית ב'גיבורת הבונים'?", opts:["אסתר","דבורה","רות","יהודית"], ans:1},
+  {q:"מי ניסח את תורת היחסות הפרטית?", opts:["בוהר","איינשטיין","הייזנברג","שרדינגר"], ans:1}
+];
+
+const TRIVIA_EN_EASY = [
+  {q:"What color do you get mixing red and yellow?", opts:["Green","Orange","Purple","Pink"], ans:1},
+  {q:"How many days are in a week?", opts:["5","6","7","8"], ans:2},
+  {q:"What sound does a cat make?", opts:["Woof","Moo","Meow","Oink"], ans:2},
+  {q:"How many legs does a spider have?", opts:["4","6","8","10"], ans:2},
+  {q:"What is the color of the sky on a clear day?", opts:["Green","Yellow","Blue","Red"], ans:2},
+  {q:"Which planet do we live on?", opts:["Mars","Venus","Earth","Jupiter"], ans:2},
+  {q:"How many months are in a year?", opts:["10","11","12","13"], ans:2},
+  {q:"What fruit is yellow and monkeys like to eat?", opts:["Apple","Banana","Grape","Mango"], ans:1},
+  {q:"How many corners does a triangle have?", opts:["2","3","4","5"], ans:1},
+  {q:"What comes after Sunday?", opts:["Saturday","Friday","Monday","Tuesday"], ans:2},
+  {q:"What number comes after 9?", opts:["10","11","19","20"], ans:0},
+  {q:"Which animal is the tallest?", opts:["Elephant","Giraffe","Rhino","Hippo"], ans:1},
+  {q:"How many fingers do humans have on two hands?", opts:["8","9","10","12"], ans:2},
+  {q:"What color is grass?", opts:["Blue","Green","Yellow","Brown"], ans:1},
+  {q:"What do you use to write on a blackboard?", opts:["Pen","Pencil","Chalk","Marker"], ans:2},
+  {q:"How many seconds are in a minute?", opts:["30","45","60","90"], ans:2},
+  {q:"What is 5 plus 3?", opts:["6","7","8","9"], ans:2},
+  {q:"Which animal says 'oink'?", opts:["Cow","Pig","Horse","Duck"], ans:1},
+  {q:"What is the first letter of the English alphabet?", opts:["B","C","A","D"], ans:2},
+  {q:"How many sides does a square have?", opts:["3","4","5","6"], ans:1},
+  {q:"What season comes after summer?", opts:["Spring","Winter","Fall","Summer"], ans:2},
+  {q:"What do bees make?", opts:["Milk","Honey","Butter","Juice"], ans:1},
+  {q:"What is the opposite of hot?", opts:["Warm","Cool","Cold","Freezing"], ans:2},
+  {q:"What do you call a baby dog?", opts:["Kitten","Cub","Puppy","Lamb"], ans:2},
+  {q:"How many eyes does a human have?", opts:["1","2","3","4"], ans:1}
+];
+
+const TRIVIA_EN_HARD = [
+  {q:"What year did World War II end?", opts:["1943","1944","1945","1946"], ans:2},
+  {q:"What is the chemical symbol for gold?", opts:["Gl","Go","Au","Ag"], ans:2},
+  {q:"How many chromosomes do human cells have?", opts:["23","44","46","48"], ans:2},
+  {q:"Who painted the Sistine Chapel ceiling?", opts:["Raphael","Leonardo","Michelangelo","Botticelli"], ans:2},
+  {q:"What is the speed of light in km/s?", opts:["150,000","200,000","300,000","450,000"], ans:2},
+  {q:"What is the atomic number of carbon?", opts:["4","6","8","12"], ans:1},
+  {q:"Who wrote 'Crime and Punishment'?", opts:["Tolstoy","Dostoevsky","Chekhov","Turgenev"], ans:1},
+  {q:"What is the largest organ in the human body?", opts:["Heart","Liver","Brain","Skin"], ans:3},
+  {q:"Which country has the most UNESCO World Heritage Sites?", opts:["France","China","Italy","Spain"], ans:2},
+  {q:"What is the half-life of Carbon-14?", opts:["1,500 years","3,700 years","5,730 years","8,200 years"], ans:2},
+  {q:"Who proposed the theory of natural selection?", opts:["Newton","Einstein","Darwin","Pasteur"], ans:2},
+  {q:"What is the capital of Mongolia?", opts:["Astana","Bishkek","Ulaanbaatar","Almaty"], ans:2},
+  {q:"In what year did the French Revolution begin?", opts:["1776","1789","1799","1815"], ans:1},
+  {q:"What is the pH of pure water?", opts:["5","6","7","8"], ans:2},
+  {q:"Who wrote '1984'?", opts:["Huxley","Orwell","Wells","Bradbury"], ans:1},
+  {q:"What is the powerhouse of the cell?", opts:["Nucleus","Ribosome","Mitochondria","Golgi"], ans:2},
+  {q:"How many bones are in an adult human body?", opts:["186","206","226","246"], ans:1},
+  {q:"Which element has the highest melting point?", opts:["Iron","Titanium","Tungsten","Osmium"], ans:2},
+  {q:"What is the square root of 169?", opts:["11","12","13","14"], ans:2},
+  {q:"Who was the first woman to win a Nobel Prize?", opts:["Dorothy Hodgkin","Rosalind Franklin","Marie Curie","Lise Meitner"], ans:2},
+  {q:"What is the largest continent by land area?", opts:["Africa","North America","Asia","Antarctica"], ans:2},
+  {q:"What is the name for a group of crows?", opts:["Flock","Pack","Murder","Gaggle"], ans:2},
+  {q:"In what year was the Berlin Wall torn down?", opts:["1987","1988","1989","1990"], ans:2},
+  {q:"What is the derivative of sin(x)?", opts:["cos(x)","-cos(x)","tan(x)","-sin(x)"], ans:0},
+  {q:"Which philosopher said 'I think, therefore I am'?", opts:["Kant","Descartes","Plato","Nietzsche"], ans:1}
+];
+
+// ===================== PRIZE WORDS (difficulty-aware) =====================
+const PRIZE_WORDS_HE = {
+  easy: {
+    5: ['ילדים','כלבים','גלידה','פרחים','שירים','בגדים','נעלים','עוגות','גשמים','חדרים','שולחן','קסמים','עינים','ספרים','צבעים'],
+    6: ['ארנבות','בלונים','כדורים','מחברות','כיסאות','חגיגות','גבינות','עוגיות','ספרייה','צלחות','שמחות','ממתקים','כלבלבים'],
+    7: ['שוקולדה','ספרייות','שעשועים','חברים טובים','מסעדות','חיות בית','מסיבות']
+  },
+  medium: {
+    5: ['ישראל','חברים','תכנות','ילדות','גיבור','תמונה','מדינה','ספינה','שיעור','מצרים','בריאה','חיפוש','נגינה','אופנה','כוכבת'],
+    6: ['כדורגל','מכונית','קולנוע','בנימין','מוסיקה','אורחים','חיילים','מנהיגה','מטבעות','גשרים','ממלכה','שוקולד','פרחים'],
+    7: ['ירושלים','אינטרנט','אוטובוס','קיבוצים','מדבריות','לאומיות','מוזיאון','מנהיגים','סיפורים','גיבורים']
+  },
+  hard: {
+    5: ['היקום','שלטון','מורשת','תרבות','ממשלה','אקלים','כלכלה','מהנדס','פרלמנט','אסטרטגיה','מנהיגות','ביקורת','רפואה'],
+    6: ['כישרון','פרלמנט','מגילות','ממשלות','הצבעות','מהפכות','דמוגרפי','מדיניות','אסטרונומיה','ביולוגיה'],
+    7: ['התפתחות','מורכבות','התנהלות','תרגומים','הסתכלות','אחריות','פילוסופיה','ממשלה']
+  }
+};
+
+const PRIZE_WORDS_EN_ALL = {
+  easy: {
+    5: ['APPLE','BEACH','CANDY','DANCE','EAGLE','FLAME','GHOST','HEART','LIGHT','MUSIC','OCEAN','PIZZA','QUEEN','RIVER','SMILE','TIGER','CLOUD','DREAM','FAIRY','HAPPY'],
+    6: ['BASKET','BRIDGE','CASTLE','FLOWER','GARDEN','HUNTER','JUNGLE','KITTEN','MARKET','NEEDLE','ORANGE','PLANET','RABBIT','SCHOOL','SUMMER','WINTER','ANIMAL','BOTTLE'],
+    7: ['AIRPORT','BLANKET','CHICKEN','DOLPHIN','FREEDOM','HOLIDAY','KITCHEN','LANTERN','PENGUIN','RAINBOW','TEACHER','VILLAGE','BALLOON','CAPTAIN']
+  },
+  medium: {
+    5: ['BRAIN','CHESS','FLAME','GRACE','HONEY','JUDGE','LASER','MAPLE','NERVE','PEACE','TIGER','UNION','VOICE','WATER','WORLD','CLOCK','FROST','NIGHT','QUEEN'],
+    6: ['DESERT','ESCAPE','GARDEN','ISLAND','KNIGHT','ROCKET','TEMPLE','WIZARD','CAMERA','DOLLAR','ENGINE','FOREST','GOLDEN','CIRCLE','BOTTLE'],
+    7: ['DIAMOND','GIRAFFE','ICEBERG','MYSTERY','PASSION','STADIUM','WEATHER','ENGLISH','FANTASY','CAPTAIN']
+  },
+  hard: {
+    5: ['EPOCH','ABYSS','AXIOM','ELEGY','ETHOS','HELIX','NEXUS','OZONE','PIXEL','PRISM','QUOTA','REDUX','ROGUE','SIGMA','TIDAL','VENOM','VIGIL','WYATT','XENON'],
+    6: ['ASTUTE','BLIGHT','CIPHER','CODIFY','CYNISM','ENIGMA','FRACAS','GENOME','HUBRIS','INFAMY','JARGON','LACUNA','MOSAIC','NOMADS','PSYCHE','QUORUM','SCHISM','SYNTAX'],
+    7: ['ABYSMAL','ACCRUAL','ALCHEMY','BAROQUE','BENIGNE','BREVITY','CRYPTIC','DYSTOPIA','EMPIRIC','FALLACY','GENESIS','HERETIC','ILLICIT','JOCULAR']
+  }
+};
+
+// Helper: get active trivia based on lang + difficulty
+function getActiveTrivia() {
+  const diff = state.difficulty || 'medium';
+  if (state.lang === 'en') {
+    if (diff === 'easy') return TRIVIA_EN_EASY;
+    if (diff === 'hard') return TRIVIA_EN_HARD;
+    return TRIVIA_EN;
+  } else {
+    if (diff === 'easy') return TRIVIA_HE_EASY;
+    if (diff === 'hard') return TRIVIA_HE_HARD;
+    return TRIVIA;
+  }
+}
+
+// Helper: get active prize words
+function getActivePrizeWords(size) {
+  const diff = state.difficulty || 'medium';
+  const bank = state.lang === 'en' ? PRIZE_WORDS_EN_ALL : PRIZE_WORDS_HE;
+  const pool = bank[diff] && bank[diff][size] ? bank[diff][size] : bank.medium[size];
+  return pool;
+}
+
+// ===================== TRANSLATION HELPER =====================
+// Simple bilingual string selector — use txt('Hebrew text', 'English text')
+function txt(he, en) {
+  return state.lang === 'en' ? en : he;
+}
+
+// Update static HTML game labels based on current language
+function updateGameUILanguage() {
+  const isEn = state.lang === 'en';
+  const el = id => document.getElementById(id);
+  const set = (id, he, en) => { const e = el(id); if (e) e.textContent = isEn ? en : he; };
+  const setHtml = (id, he, en) => { const e = el(id); if (e) e.innerHTML = isEn ? en : he; };
+
+  set('prizeLabelEl',    'מילת הפרס',              'Prize Word');
+  set('guessWordBtn',    'נסה לנחש את המילה',       'Guess the word!');
+  setHtml('swapBtn',    '🔄 החלף שאלה (השתמש בכוח)','🔄 Swap question (use power)');
+  // Win screen
+  set('winPrizeLabelEl','מילת הפרס הייתה:',        'The prize word was:');
+  set('playAgainBtn',   'שחק שוב',                  'Play Again');
+  // Guess modal
+  set('guessModalTitle','נחשו את מילת הפרס',       'Guess the Prize Word');
+  set('guessModalHint', 'הקישו את מילת הפרס',      'Type the prize word');
+  set('guessSubmitBtn', 'נחש!',                     'Guess!');
+  set('guessCancelBtn', 'ביטול',                    'Cancel');
+  // Turn badge label
+  set('turnLabel', 'תור:', 'Turn:');
+  // Input direction
+  const gi = document.getElementById('guessInput');
+  if (gi) { gi.dir = isEn ? 'ltr' : 'rtl'; gi.placeholder = isEn ? 'Type the prize word...' : 'הקישו את מילת הפרס...'; }
+}
 
 // ===================== GAME STATE =====================
 let state = {
   numPlayers: 2,
+  lang: 'he',
   players: [],
   boardSize: 5,
   prizeWord: '',
@@ -1061,19 +1772,385 @@ let state = {
   currentCellIndex: -1,
   currentQuestion: null,
   timerInterval: null,
-  timerVal: 20,
+  timerVal: 15,
   gameOver: false,
   pendingPower: null,
   questionPool: [],
   usedQuestions: new Set(),
-  swapUsedThisTurn: false
+  swapUsedThisTurn: false,
+  difficulty: 'medium',
+  // Multiplayer fields
+  roomId: '',
+  myPlayerIndex: -1,   // -1 = solo/offline mode
+  isHost: false,
+  dbListener: null
 };
 
+// ===================== LOBBY / MULTIPLAYER =====================
+function generateRoomCode() {
+  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  return Array.from({length: 6}, () => chars[Math.floor(Math.random() * chars.length)]).join('');
+}
+
+function getLobbyName() {
+  return (document.getElementById('lobbyNameInput').value.trim() ||
+    localStorage.getItem('mshabetzet_name') || 'שחקן');
+}
+
+function saveLobbyName(name) {
+  localStorage.setItem('mshabetzet_name', name);
+}
+
+async function createRoom() {
+  if (!db) { alert('Firebase לא מוגדר. מלא את FIREBASE_CONFIG בקוד.'); return; }
+  const name = getLobbyName();
+  if (!name) { alert('הכנס שם לפני שיצירת חדר.'); return; }
+  saveLobbyName(name);
+  const code = generateRoomCode();
+  const playerEntry = { name, color: PLAYER_COLORS[0], connected: true };
+  await db.ref(`games/${code}`).set({
+    phase: 'waiting',
+    players: { '0': playerEntry }
+  });
+  state.roomId = code;
+  state.myPlayerIndex = 0;
+  state.isHost = true;
+  localStorage.setItem('mshabetzet_session', JSON.stringify({roomId: code, myPlayerIndex: 0, name}));
+  showScreen('waiting-screen');
+  document.getElementById('waitingRoomCode').textContent = code;
+  document.getElementById('hostStartSection').style.display = '';
+  document.getElementById('guestWaitSection').style.display = 'none';
+  listenToWaiting();
+}
+
+async function joinRoom() {
+  if (!db) { alert('Firebase לא מוגדר. מלא את FIREBASE_CONFIG בקוד.'); return; }
+  const code = (document.getElementById('joinCodeInput').value.trim()).toUpperCase();
+  if (code.length < 6) { alert('הכנס קוד חדר תקין (6 תווים).'); return; }
+  const name = getLobbyName();
+  if (!name) { alert('הכנס שם לפני הצטרפות.'); return; }
+  saveLobbyName(name);
+  const snap = await db.ref(`games/${code}`).get();
+  if (!snap.exists()) { alert('חדר לא נמצא. בדוק את הקוד.'); return; }
+  const data = snap.val();
+  if (data.phase !== 'waiting') { alert('המשחק בחדר זה כבר התחיל.'); return; }
+  const existingPlayers = data.players || {};
+  const count = Object.keys(existingPlayers).length;
+  if (count >= 4) { alert('החדר מלא (מקסימום 4 שחקנים).'); return; }
+  const idx = count;
+  await db.ref(`games/${code}/players/${idx}`).set({ name, color: PLAYER_COLORS[idx], connected: true });
+  state.roomId = code;
+  state.myPlayerIndex = idx;
+  state.isHost = false;
+  localStorage.setItem('mshabetzet_session', JSON.stringify({roomId: code, myPlayerIndex: idx, name}));
+  showScreen('waiting-screen');
+  document.getElementById('waitingRoomCode').textContent = code;
+  document.getElementById('hostStartSection').style.display = 'none';
+  document.getElementById('guestWaitSection').style.display = '';
+  listenToWaiting();
+}
+
+function copyRoomCode() {
+  const code = state.roomId || document.getElementById('waitingRoomCode').textContent;
+  navigator.clipboard.writeText(code).then(() => showToast(txt('קוד הועתק!', 'Code copied!'), 'success'));
+}
+
+let waitingListener = null;
+function listenToWaiting() {
+  if (waitingListener) waitingListener.off();
+  waitingListener = db.ref(`games/${state.roomId}`);
+  waitingListener.on('value', snap => {
+    if (!snap.exists()) return;
+    const data = snap.val();
+    // If game has started, transition to game
+    if (data.phase === 'playing') {
+      if (waitingListener) { waitingListener.off(); waitingListener = null; }
+      loadGameFromFirebase(data);
+      return;
+    }
+    // Render player list
+    const players = data.players || {};
+    const list = document.getElementById('waitingPlayerList');
+    list.innerHTML = '';
+    const entries = Object.entries(players);
+    entries.forEach(([idx, p]) => {
+      const item = document.createElement('div');
+      item.className = 'waiting-player-item';
+      item.innerHTML = `<div class="waiting-player-dot" style="background:${p.color}"></div>
+        <span class="waiting-player-name">${p.name}</span>
+        <span class="waiting-player-tag">${parseInt(idx) === state.myPlayerIndex ? txt('אתה','You') : ''} ${parseInt(idx) === 0 ? txt('👑 מארח','👑 Host') : ''}</span>`;
+      list.appendChild(item);
+    });
+    // Enable start button if host and ≥2 players
+    if (state.isHost) {
+      const btn = document.getElementById('hostStartBtn');
+      btn.disabled = entries.length < 2;
+      btn.textContent = entries.length < 2
+        ? txt('🎮 התחל משחק! (ממתין לשחקנים…)', '🎮 Start Game! (waiting for players…)')
+        : txt(`🎮 התחל משחק! (${entries.length} שחקנים)`, `🎮 Start Game! (${entries.length} players)`);
+    }
+  });
+}
+
+async function startGameFromHost() {
+  if (!db || !state.isHost) return;
+  const snap = await db.ref(`games/${state.roomId}/players`).get();
+  const players = snap.val() || {};
+  const playerEntries = Object.entries(players);
+  const n = playerEntries.length;
+  const boardSize = [0,5,5,6,7][n] || 5;
+  const langSnap = await db.ref(`games/${state.roomId}/lang`).get();
+  const lang = langSnap.val() || 'he';
+  const diff = state.difficulty || 'medium';
+  const wordBankAll = lang === 'en' ? PRIZE_WORDS_EN_ALL : PRIZE_WORDS_HE;
+  const wordPool = (wordBankAll[diff] && wordBankAll[diff][boardSize]) ? wordBankAll[diff][boardSize] : wordBankAll.medium[boardSize];
+  const prizeWord = wordPool[Math.floor(Math.random() * wordPool.length)];
+  // Temporarily set state.lang/difficulty so getActiveTrivia works
+  const savedLang = state.lang; const savedDiff = state.difficulty;
+  state.lang = lang; state.difficulty = diff;
+  const activeTrivia = getActiveTrivia();
+  state.lang = savedLang; state.difficulty = savedDiff;
+  const questionPool = shuffleArray([...Array(activeTrivia.length).keys()]);
+  // Build cells
+  const totalCells = boardSize * boardSize;
+  const letterCount = prizeWord.length;
+  const surpriseCount = Math.floor((totalCells - letterCount) * 0.25);
+  const bonusCount = totalCells - letterCount - surpriseCount;
+  let cellTypes = [
+    ...Array(letterCount).fill('letter'),
+    ...Array(surpriseCount).fill('surprise'),
+    ...Array(bonusCount).fill('bonus')
+  ];
+  cellTypes = shuffleArray(cellTypes);
+  let letterIdx = 0;
+  const cells = cellTypes.map(type => {
+    const cell = { type, revealed: false, burned: false, revealClass: '', answeredCorrectly: false, surpriseOutcome: '' };
+    if (type === 'letter') cell.letterIndex = letterIdx++;
+    return cell;
+  });
+  // Build player objects
+  const playersObj = {};
+  playerEntries.forEach(([idx, p]) => {
+    playersObj[idx] = {
+      name: p.name, color: p.color, score: 0, strikes: 0,
+      eliminated: false, powers: [], skipNextTurn: false,
+      forcedRandom: false, revealedLetters: {}
+    };
+  });
+  await db.ref(`games/${state.roomId}`).update({
+    phase: 'playing',
+    lang, numPlayers: n, boardSize, prizeWord, difficulty: diff,
+    questionPool, usedQuestions: [],
+    currentPlayer: 0, currentCellIndex: -1, gameOver: false,
+    cells, players: playersObj
+  });
+  // listenToWaiting will catch phase==='playing' and call loadGameFromFirebase
+}
+
+function loadGameFromFirebase(data) {
+  // Restore state from Firebase snapshot
+  state.numPlayers = data.numPlayers;
+  state.lang = data.lang || 'he';
+  state.difficulty = data.difficulty || 'medium';
+  state.boardSize = data.boardSize;
+  state.prizeWord = data.prizeWord;
+  state.questionPool = data.questionPool || [];
+  state.usedQuestions = new Set(data.usedQuestions || []);
+  state.currentPlayer = data.currentPlayer || 0;
+  state.currentCellIndex = data.currentCellIndex || -1;
+  state.gameOver = data.gameOver || false;
+  state.cells = data.cells || [];
+  // Build players array from Firebase object
+  const playersObj = data.players || {};
+  state.players = Object.keys(playersObj).sort((a,b) => a-b).map(k => {
+    const p = playersObj[k];
+    return {
+      name: p.name, color: p.color, score: p.score || 0,
+      strikes: p.strikes || 0, eliminated: p.eliminated || false,
+      powers: p.powers || [], skipNextTurn: p.skipNextTurn || false,
+      forcedRandom: p.forcedRandom || false,
+      revealedLetters: p.revealedLetters || {}
+    };
+  });
+  state.swapUsedThisTurn = false;
+  showScreen('game-screen');
+  updateGameUILanguage();
+  renderAll();
+  updateTurnBanner();
+  listenToGame();
+}
+
+function listenToGame() {
+  if (state.dbListener) { state.dbListener.off(); state.dbListener = null; }
+  if (!db || !state.roomId) return;
+  state.dbListener = db.ref(`games/${state.roomId}`);
+  let isFirstCall = true;
+  state.dbListener.on('value', snap => {
+    if (!snap.exists()) return;
+    if (isFirstCall) { isFirstCall = false; return; } // skip initial load (already applied)
+    const data = snap.val();
+    if (data.phase === 'ended') { endGame(); return; }
+    // Update shared state from Firebase (don't overwrite local player's revealedLetters)
+    const myRL = state.myPlayerIndex >= 0 ? state.players[state.myPlayerIndex]?.revealedLetters : null;
+    loadSharedState(data);
+    // Restore my revealed letters (not overwritten by others)
+    if (myRL && state.myPlayerIndex >= 0 && state.players[state.myPlayerIndex]) {
+      state.players[state.myPlayerIndex].revealedLetters = myRL;
+    }
+    renderAll();
+    updateTurnBanner();
+  });
+}
+
+function loadSharedState(data) {
+  state.currentPlayer = data.currentPlayer || 0;
+  state.currentCellIndex = data.currentCellIndex >= 0 ? data.currentCellIndex : -1;
+  state.gameOver = data.gameOver || false;
+  state.cells = data.cells || [];
+  state.questionPool = data.questionPool || [];
+  state.usedQuestions = new Set(data.usedQuestions || []);
+  const playersObj = data.players || {};
+  state.players = Object.keys(playersObj).sort((a,b)=>a-b).map((k,i) => {
+    const p = playersObj[k];
+    return {
+      name: p.name, color: p.color, score: p.score || 0,
+      strikes: p.strikes || 0, eliminated: p.eliminated || false,
+      powers: p.powers || [], skipNextTurn: p.skipNextTurn || false,
+      forcedRandom: p.forcedRandom || false,
+      revealedLetters: p.revealedLetters || {}
+    };
+  });
+}
+
+function pushToFirebase() {
+  if (!db || !state.roomId) return;
+  // Serialize players — convert revealedLetters numeric keys to strings for Firebase
+  const playersObj = {};
+  state.players.forEach((p, i) => {
+    playersObj[i] = {
+      name: p.name, color: p.color, score: p.score,
+      strikes: p.strikes, eliminated: p.eliminated,
+      powers: p.powers || [],
+      skipNextTurn: p.skipNextTurn || false,
+      forcedRandom: p.forcedRandom || false,
+      revealedLetters: p.revealedLetters || {}
+    };
+  });
+  // Serialize cells (remove undefined values)
+  const cells = state.cells.map(c => ({
+    type: c.type,
+    letterIndex: c.letterIndex !== undefined ? c.letterIndex : -1,
+    revealed: c.revealed || false,
+    burned: c.burned || false,
+    revealClass: c.revealClass || '',
+    answeredCorrectly: c.answeredCorrectly || false,
+    surpriseOutcome: c.surpriseOutcome || ''
+  }));
+  db.ref(`games/${state.roomId}`).update({
+    currentPlayer: state.currentPlayer,
+    currentCellIndex: state.currentCellIndex,
+    gameOver: state.gameOver,
+    questionPool: state.questionPool,
+    usedQuestions: [...state.usedQuestions],
+    cells,
+    players: playersObj
+  });
+}
+
+function renderAll() {
+  renderBoard();
+  renderPrizeBoxes();
+  renderScoreboard();
+  updateTurnBadge();
+}
+
+function updateTurnBanner() {
+  const banner = document.getElementById('turnBanner');
+  if (!banner) return;
+  const isMultiplayer = state.myPlayerIndex >= 0;
+  if (!isMultiplayer) { banner.style.display = 'none'; return; }
+  banner.style.display = '';
+  const isMyTurn = state.myPlayerIndex === state.currentPlayer;
+  if (isMyTurn) {
+    banner.className = 'turn-banner my-turn';
+    banner.textContent = txt('🎯 זה התור שלך!', "🎯 It's your turn!");
+  } else {
+    const cp = state.players[state.currentPlayer];
+    banner.className = 'turn-banner their-turn';
+    banner.textContent = txt(`⏳ ממתין לתור של ${cp ? cp.name : '...'}`,
+                             `⏳ Waiting for ${cp ? cp.name : '...'}'s turn`);
+  }
+}
+
+function playSolo() {
+  state.myPlayerIndex = -1;
+  state.roomId = '';
+  state.isHost = false;
+  showScreen('setup-screen');
+}
+
+async function reconnectGame() {
+  const saved = JSON.parse(localStorage.getItem('mshabetzet_session') || 'null');
+  if (!saved || !db) return;
+  const snap = await db.ref(`games/${saved.roomId}`).get();
+  if (!snap.exists()) { showToast('המשחק לא נמצא', 'error'); localStorage.removeItem('mshabetzet_session'); return; }
+  const data = snap.val();
+  if (data.phase !== 'playing') { showToast('המשחק כבר הסתיים', 'error'); localStorage.removeItem('mshabetzet_session'); return; }
+  state.roomId = saved.roomId;
+  state.myPlayerIndex = saved.myPlayerIndex;
+  state.isHost = saved.myPlayerIndex === 0;
+  loadGameFromFirebase(data);
+}
+
+function checkReconnect() {
+  const saved = JSON.parse(localStorage.getItem('mshabetzet_session') || 'null');
+  if (!saved || !db) return;
+  const banner = document.getElementById('reconnectBanner');
+  const codeEl = document.getElementById('reconnectCode');
+  if (banner && codeEl) {
+    codeEl.textContent = saved.roomId;
+    banner.style.display = '';
+    const nameInput = document.getElementById('lobbyNameInput');
+    if (nameInput && saved.name) nameInput.value = saved.name;
+  }
+}
+
 // ===================== SETUP =====================
+function setLang(lang) {
+  state.lang = lang;
+  document.getElementById('langHe').classList.toggle('selected', lang === 'he');
+  document.getElementById('langEn').classList.toggle('selected', lang === 'en');
+}
+
+function showDifficultyScreen() {
+  // Collect names into state early (empty names will get defaults on startGame)
+  const isEn = state.lang === 'en';
+  const set = (id, he, en) => { const e = document.getElementById(id); if (e) e.textContent = isEn ? en : he; };
+  set('diffSub',        'בחרו רמת קושי',           'Choose Difficulty');
+  set('diffTitle',      'רמת קושי 🎯',            '🎯 Difficulty Level');
+  set('diffBackBtn',    '← חזרה',                 '← Back');
+  set('diffEasyName',   'קל',                     'Easy');
+  set('diffEasyDesc',   'שאלות פשוטות, מילות פרס נפוצות', 'Simple questions, common words');
+  set('diffMediumName', 'בינוני',                  'Medium');
+  set('diffMediumDesc', 'שאלות על כל הנושאים',    'Questions on all topics');
+  set('diffHardName',   'קשה',                     'Hard');
+  set('diffHardDesc',   'לאמיצים בלבד — שאלות מאתגרות', 'Experts only — challenging questions');
+  set('diffStartBtn',   '🎮 התחילו לשחק',          '🎮 Start Game!');
+  showScreen('difficulty-screen');
+}
+
+function setDifficulty(diff) {
+  state.difficulty = diff;
+  ['easy','medium','hard'].forEach(d => {
+    const el = document.getElementById('diff' + d.charAt(0).toUpperCase() + d.slice(1));
+    if (el) el.classList.toggle('selected', d === diff);
+  });
+}
+
 function setPlayerCount(n) {
   state.numPlayers = n;
   document.querySelectorAll('.count-btn').forEach((b,i) => {
-    b.classList.toggle('selected', i === n - 2);
+    b.classList.toggle('selected', i === n - 1);
   });
   renderPlayerInputs();
 }
@@ -1106,13 +2183,14 @@ function startGame() {
       forcedRandom: false
     });
   }
-  state.boardSize = [0,0,5,6,7][state.numPlayers];
-  const words = PRIZE_WORDS[state.boardSize];
+  state.boardSize = [0,5,5,6,7][state.numPlayers];
+  const words = getActivePrizeWords(state.boardSize);
   state.prizeWord = words[Math.floor(Math.random() * words.length)];
   state.currentPlayer = 0;
   state.gameOver = false;
   state.usedQuestions = new Set();
-  state.questionPool = shuffleArray([...Array(TRIVIA.length).keys()]);
+  const activeTrivia = getActiveTrivia();
+  state.questionPool = shuffleArray([...Array(activeTrivia.length).keys()]);
 
   // Build cells
   const total = state.boardSize * state.boardSize;
@@ -1145,7 +2223,9 @@ function startGame() {
     });
   }
 
+  state.myPlayerIndex = -1; // solo mode
   showScreen('game-screen');
+  updateGameUILanguage();
   renderPrizeBoxes();
   renderBoard();
   renderScoreboard();
@@ -1162,7 +2242,9 @@ function showScreen(id) {
 function renderPrizeBoxes() {
   const container = document.getElementById('prizeBoxes');
   container.innerHTML = '';
-  const p = state.players[state.currentPlayer];
+  // In multiplayer: each device shows ITS OWN revealed letters, not the current player's
+  const viewIdx = state.myPlayerIndex >= 0 ? state.myPlayerIndex : state.currentPlayer;
+  const p = state.players[viewIdx];
   for (let i = 0; i < state.prizeWord.length; i++) {
     const box = document.createElement('div');
     box.className = 'prize-box';
@@ -1189,6 +2271,8 @@ function renderBoard() {
   board.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
   board.innerHTML = '';
   const activePl = state.players[state.currentPlayer];
+  // In multiplayer: only the active player can click; others see board as read-only
+  const isMyTurn = state.myPlayerIndex < 0 || state.myPlayerIndex === state.currentPlayer;
   state.cells.forEach((cell, i) => {
     const div = document.createElement('div');
     div.className = 'cell';
@@ -1196,7 +2280,7 @@ function renderBoard() {
     if (!cell.revealed) {
       div.classList.add('unrevealed');
       div.textContent = '?';
-      if (!state.gameOver && activePl && !activePl.eliminated) {
+      if (!state.gameOver && activePl && !activePl.eliminated && isMyTurn) {
         div.onclick = () => clickCell(i);
       } else {
         div.classList.add('disabled');
@@ -1239,7 +2323,7 @@ function renderScoreboard() {
     if (p.powers.length > 0) {
       powersHtml = `<div class="player-powers">`;
       p.powers.forEach((pw, pi) => {
-        powersHtml += `<span class="power-badge usable" title="${pw.desc}" onclick="openPowersModal(${i})">${pw.name}</span>`;
+        powersHtml += `<span class="power-badge usable" title="${txt(pw.desc,pw.desc_en||pw.desc)}" onclick="openPowersModal(${i})">${txt(pw.name,pw.name_en||pw.name)}</span>`;
       });
       powersHtml += `</div>`;
     }
@@ -1248,8 +2332,8 @@ function renderScoreboard() {
       <div style="flex:1">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
           <div class="player-name">${p.name}</div>
-          ${p.eliminated ? '<span class="elim-badge">חוסל</span>' : ''}
-          ${p.skipNextTurn ? '<span class="elim-badge" style="border-color:var(--gold);color:var(--gold)">מדלג</span>' : ''}
+          ${p.eliminated ? `<span class="elim-badge">${txt('חוסל','Out')}</span>` : ''}
+          ${p.skipNextTurn ? `<span class="elim-badge" style="border-color:var(--gold);color:var(--gold)">${txt('מדלג','Skip')}</span>` : ''}
         </div>
         <div style="display:flex;align-items:center;gap:10px">
           <div class="player-strikes">${strikesHtml}</div>
@@ -1270,6 +2354,10 @@ function updateTurnBadge() {
 // ===================== CELL CLICK =====================
 function clickCell(index) {
   if (state.gameOver) return;
+  // Multiplayer guard: only current player can click
+  if (state.myPlayerIndex >= 0 && state.myPlayerIndex !== state.currentPlayer) {
+    showToast(txt('זה לא התור שלך!', "It's not your turn!"), 'error'); return;
+  }
   const p = state.players[state.currentPlayer];
   if (!p || p.eliminated) return;
   const cell = state.cells[index];
@@ -1281,28 +2369,29 @@ function clickCell(index) {
 
 // ===================== QUESTION MODAL =====================
 function getQuestion() {
+  const activeTrivia = getActiveTrivia();
   if (state.questionPool.length === 0) {
-    state.questionPool = shuffleArray([...Array(TRIVIA.length).keys()]);
+    state.questionPool = shuffleArray([...Array(activeTrivia.length).keys()]);
     state.usedQuestions.clear();
   }
   let idx;
   do {
     idx = state.questionPool.pop();
     if (state.questionPool.length === 0) {
-      state.questionPool = shuffleArray([...Array(TRIVIA.length).keys()]);
+      state.questionPool = shuffleArray([...Array(activeTrivia.length).keys()]);
     }
-  } while (state.usedQuestions.has(idx) && state.usedQuestions.size < TRIVIA.length);
+  } while (state.usedQuestions.has(idx) && state.usedQuestions.size < activeTrivia.length);
   state.usedQuestions.add(idx);
-  return {...TRIVIA[idx], originalIndex: idx};
+  return {...activeTrivia[idx], originalIndex: idx};
 }
 
 function openQuestionModal() {
   state.currentQuestion = getQuestion();
   renderQuestion();
   clearInterval(state.timerInterval);
-  state.timerVal = 20;
+  state.timerVal = 15;
   document.getElementById('timerBar').style.width = '100%';
-  document.getElementById('timerText').textContent = '20';
+  document.getElementById('timerText').textContent = '15';
   document.getElementById('timerText').classList.remove('urgent');
   document.getElementById('questionModal').classList.add('active');
   startTimer();
@@ -1316,7 +2405,7 @@ function renderQuestion() {
   const p = state.players[state.currentPlayer];
   document.getElementById('qPlayerName').textContent = p.name;
   const cell = state.cells[state.currentCellIndex];
-  const typeLabel = cell.type === 'letter' ? '❓ משבצת' : cell.type === 'surprise' ? '❓ משבצת' : '❓ משבצת';
+  const typeLabel = txt('❓ משבצת', '❓ Cell');
   document.getElementById('qSquareType').textContent = typeLabel;
   document.getElementById('qText').textContent = q.q;
   const grid = document.getElementById('optionsGrid');
@@ -1346,7 +2435,7 @@ function shuffleOptions(opts, ansIdx) {
 function startTimer() {
   state.timerInterval = setInterval(() => {
     state.timerVal--;
-    const frac = state.timerVal / 20;
+    const frac = state.timerVal / 15;
     document.getElementById('timerBar').style.width = (frac * 100) + '%';
     document.getElementById('timerText').textContent = state.timerVal;
     if (state.timerVal <= 5) document.getElementById('timerText').classList.add('urgent');
@@ -1397,14 +2486,14 @@ function useSwap() {
   state.currentQuestion = getQuestion();
   renderQuestion();
   clearInterval(state.timerInterval);
-  state.timerVal = 20;
+  state.timerVal = 15;
   document.getElementById('timerBar').style.width = '100%';
-  document.getElementById('timerText').textContent = '20';
+  document.getElementById('timerText').textContent = '15';
   document.getElementById('timerText').classList.remove('urgent');
   document.getElementById('swapBtn').style.display = 'none';
   startTimer();
   renderScoreboard();
-  showToast(`${p.name} החליף שאלה!`, 'info');
+  showToast(txt(`${p.name} החליף שאלה!`, `${p.name} swapped the question!`), 'info');
 }
 
 // ===================== PROCESS ANSWER =====================
@@ -1435,12 +2524,16 @@ function processLetterCell(correct) {
     updateCellVisual(state.currentCellIndex);
     renderPrizeBoxes();
     renderScoreboard();
+    pushToFirebase();
     showResult(
       '⭐',
-      'משבצת אות!',
+      txt('משבצת אות!', 'Letter Cell!'),
       '+20',
-      `ענית נכון! האות "${letter}" נחשפה בפניך בלבד. +10 על תשובה נכונה, +10 על חשיפת אות.`,
-      true
+      txt(`ענית נכון! האות "${letter}" נחשפה בפניך בלבד. +10 על תשובה נכונה, +10 על חשיפת אות.`,
+          `Correct! The letter "${letter}" is revealed to you only. +10 for the answer, +10 for the letter.`),
+      true,
+      txt('משבצת אות: תשובה נכונה חושפת את האות לך בלבד ומזכה ב-+20 נקודות. אות שנחשפה מסייעת לך לנחש את מילת הפרס!',
+          'Letter Cell: a correct answer reveals the letter to you alone and awards +20 points. Use revealed letters to guess the prize word!')
     );
   } else {
     addStrike(p);
@@ -1452,12 +2545,16 @@ function processLetterCell(correct) {
     const letter = state.prizeWord[cell.letterIndex];
     const strikeResult = checkElimination(p);
     renderScoreboard();
+    pushToFirebase();
     showResult(
       '🔥',
-      'האות נשרפה!',
+      txt('האות נשרפה!', 'Letter Burned!'),
       '−0',
-      `ענית שגוי. האות "${letter}" נשרפה לכולם! ${strikeResult}`,
-      false
+      txt(`ענית שגוי. האות "${letter}" נשרפה לכולם! ${strikeResult}`,
+          `Wrong answer. The letter "${letter}" is burned for everyone! ${strikeResult}`),
+      false,
+      txt('משבצת אות: תשובה שגויה שורפת את האות לכולם — האות אינה ניתנת לגילוי עוד, וקיבלת מחיקה (X).',
+          'Letter Cell: a wrong answer burns the letter for everyone — it can no longer be revealed, and you receive a strike (X).')
     );
   }
 }
@@ -1475,12 +2572,18 @@ function processSurpriseCell(correct) {
     cell.answeredCorrectly = true;
     updateCellVisual(state.currentCellIndex);
     renderScoreboard();
+    pushToFirebase();
+    const sName = txt(surprise.name, surprise.name_en);
+    const sDesc = txt(surprise.desc, surprise.desc_en);
+    const sNote = txt(surprise.note, surprise.note_en);
     showResult(
       '🎁',
-      'הפתעה ירוקה!',
+      txt('הפתעה ירוקה!', 'Green Surprise!'),
       '+5',
-      `ענית נכון! +5 נקודות. כוח חדש: ${surprise.name} — ${surprise.desc}`,
-      true
+      txt(`ענית נכון! +5 נקודות. כוח חדש: ${surprise.name} — ${surprise.desc}`,
+          `Correct! +5 points. New power: ${sName} — ${sDesc}`),
+      true,
+      sNote
     );
   } else {
     addStrike(p);
@@ -1493,12 +2596,18 @@ function processSurpriseCell(correct) {
     updateCellVisual(state.currentCellIndex);
     const strikeResult = checkElimination(p);
     renderScoreboard();
+    pushToFirebase();
+    const pName = txt(penalty.name, penalty.name_en);
+    const pDesc = txt(penalty.desc, penalty.desc_en);
+    const pNote = txt(penalty.note, penalty.note_en);
     showResult(
       '💥',
-      'הפתעה אדומה!',
+      txt('הפתעה אדומה!', 'Red Surprise!'),
       '',
-      `ענית שגוי. עונש: ${penalty.name} — ${penalty.desc}. ${strikeResult}`,
-      false
+      txt(`ענית שגוי. עונש: ${penalty.name} — ${penalty.desc}. ${strikeResult}`,
+          `Wrong answer. Penalty: ${pName} — ${pDesc}. ${strikeResult}`),
+      false,
+      pNote
     );
   }
 }
@@ -1513,7 +2622,12 @@ function processBonusCell(correct) {
     cell.answeredCorrectly = true;
     updateCellVisual(state.currentCellIndex);
     renderScoreboard();
-    showResult('✅', 'בונוס!', '+10', 'ענית נכון! +10 נקודות.', true);
+    pushToFirebase();
+    showResult('✅', txt('בונוס!', 'Bonus!'), '+10',
+      txt('ענית נכון! +10 נקודות.', 'Correct! +10 points.'),
+      true,
+      txt('משבצת בונוס: תשובה נכונה מזכה ב-+10 נקודות ישירות לניקודך — ללא חשיפת אות, רק נקודות!',
+          'Bonus Cell: a correct answer awards +10 points directly — no letter reveal, just pure points!'));
   } else {
     addStrike(p);
     cell.revealClass = 'bonus-wrong';
@@ -1521,7 +2635,12 @@ function processBonusCell(correct) {
     updateCellVisual(state.currentCellIndex);
     const strikeResult = checkElimination(p);
     renderScoreboard();
-    showResult('❌', 'תשובה שגויה', '0', `ענית שגוי. ${strikeResult}`, false);
+    pushToFirebase();
+    showResult('❌', txt('תשובה שגויה', 'Wrong Answer'), '0',
+      txt(`ענית שגוי. ${strikeResult}`, `Wrong answer. ${strikeResult}`),
+      false,
+      txt('משבצת בונוס: תשובה שגויה = מחיקה (X). 3 מחיקות מביאות לפסילה מהמשחק — אין כאן נקודות בכל מקרה.',
+          'Bonus Cell: wrong answer = a strike (X). 3 strikes and you are eliminated — no points either way.'));
   }
 }
 
@@ -1542,11 +2661,9 @@ function addStrike(p) {
 function checkElimination(p) {
   if (p.strikes >= 3 && !p.eliminated) {
     p.eliminated = true;
-    return `${p.name} חוסל!`;
+    return txt(`${p.name} חוסל!`, `${p.name} is eliminated!`);
   } else if (p.strikes === 2) {
-    return 'אזהרה: עוד מחיקה אחת ואתה מחוסל!';
-  } else if (p.strikes === 1) {
-    return '';
+    return txt('אזהרה: עוד מחיקה אחת ואתה מחוסל!', 'Warning: one more strike and you are eliminated!');
   }
   return '';
 }
@@ -1563,12 +2680,15 @@ function updateCellVisual(index) {
 }
 
 // ===================== RESULT MODAL =====================
-function showResult(icon, title, delta, desc, positive) {
+function showResult(icon, title, delta, desc, positive, note = '') {
   document.getElementById('resultIcon').textContent = icon;
   document.getElementById('resultTitle').textContent = title;
   document.getElementById('resultDelta').textContent = delta;
   document.getElementById('resultDelta').style.color = positive ? 'var(--green)' : delta === '0' || delta === '' ? 'var(--text2)' : 'var(--red)';
   document.getElementById('resultDesc').textContent = desc;
+  const bonusNote = document.getElementById('bonusNote');
+  bonusNote.textContent = note;
+  bonusNote.className = 'bonus-note' + (note ? ' visible' : '') + (note ? (positive ? ' positive' : ' negative') : '');
   document.getElementById('resultModal').classList.add('active');
 }
 
@@ -1578,12 +2698,20 @@ function closeResult() {
   if (!state.gameOver) {
     nextTurn();
   }
+  pushToFirebase();
 }
 
 function checkGameEnd() {
-  // Check if all non-eliminated players are gone (only 1 left)
   const active = state.players.filter(p => !p.eliminated);
-  if (active.length <= 1 && state.players.length > 1) {
+  // Single player: end if eliminated or all cells revealed
+  if (state.players.length === 1) {
+    if (active.length === 0 || state.cells.every(c => c.revealed)) {
+      endGame();
+    }
+    return;
+  }
+  // Multiplayer: end if only 1 active player left
+  if (active.length <= 1) {
     endGame();
     return;
   }
@@ -1603,7 +2731,7 @@ function nextTurn() {
     if (!p.eliminated) {
       if (p.skipNextTurn) {
         p.skipNextTurn = false;
-        showToast(`${p.name} מדלג על תור`, 'warning');
+        showToast(txt(`${p.name} מדלג על תור`, `${p.name} skips a turn`), 'warning');
         next = (next + 1) % state.players.length;
         loops++;
         continue;
@@ -1619,9 +2747,11 @@ function nextTurn() {
 
   state.currentPlayer = next;
   updateTurnBadge();
+  updateTurnBanner();
   renderPrizeBoxes();
   renderScoreboard();
   renderBoard();
+  pushToFirebase();
 
   const p = state.players[state.currentPlayer];
   if (p.forcedRandom) {
@@ -1629,7 +2759,8 @@ function nextTurn() {
     const unrevealed = state.cells.map((c,i) => (!c.revealed ? i : -1)).filter(i => i !== -1);
     if (unrevealed.length > 0) {
       const forced = unrevealed[Math.floor(Math.random() * unrevealed.length)];
-      showToast(`מהלך כפוי! ${p.name} מוכרח לבחור משבצת אקראית`, 'warning');
+      showToast(txt(`מהלך כפוי! ${p.name} מוכרח לבחור משבצת אקראית`,
+                    `Forced Move! ${p.name} must pick a random cell`), 'warning');
       setTimeout(() => clickCell(forced), 800);
     }
   }
@@ -1639,9 +2770,15 @@ function nextTurn() {
 function openGuessModal() {
   const p = state.players[state.currentPlayer];
   if (!p || p.eliminated) return;
-  document.getElementById('guessInput').value = '';
+  const inp = document.getElementById('guessInput');
+  inp.value = '';
+  inp.placeholder = txt('הקישו את מילת הפרס...', 'Type the prize word...');
+  inp.dir = state.lang === 'en' ? 'ltr' : 'rtl';
   document.getElementById('guessModal').classList.add('active');
-  setTimeout(() => document.getElementById('guessInput').focus(), 100);
+  const hint = document.getElementById('guessModalHint');
+  if (hint) hint.textContent = txt(`המילה מכילה ${state.prizeWord.length} אותיות`,
+                                    `The word has ${state.prizeWord.length} letters`);
+  setTimeout(() => inp.focus(), 100);
 }
 
 function closeGuessModal() {
@@ -1657,7 +2794,10 @@ function submitGuess() {
     p.score += 50;
     renderScoreboard();
     createConfetti();
-    showResult('🏆', '!ניחשת נכון', '+50', `כל הכבוד ${p.name}! ניחשת את מילת הפרס: "${state.prizeWord}"`, true);
+    pushToFirebase();
+    showResult('🏆', txt('!ניחשת נכון', 'Correct Guess!'), '+50',
+      txt(`כל הכבוד ${p.name}! ניחשת את מילת הפרס: "${state.prizeWord}"`,
+          `Well done ${p.name}! You guessed the prize word: "${state.prizeWord}"`), true);
     setTimeout(() => {
       document.getElementById('resultModal').classList.remove('active');
       endGame(p);
@@ -1666,7 +2806,10 @@ function submitGuess() {
     addStrike(p);
     const strikeResult = checkElimination(p);
     renderScoreboard();
-    showResult('❌', 'ניחוש שגוי', '0', `"${input}" אינה מילת הפרס. ניחוש שגוי = מחיקה. ${strikeResult}`, false);
+    pushToFirebase();
+    showResult('❌', txt('ניחוש שגוי', 'Wrong Guess'), '0',
+      txt(`"${input}" אינה מילת הפרס. ניחוש שגוי = מחיקה. ${strikeResult}`,
+          `"${input}" is not the prize word. Wrong guess = a strike. ${strikeResult}`), false);
   }
 }
 
@@ -1679,7 +2822,7 @@ function openPowersModal(playerIdx) {
   p.powers.forEach((pw, i) => {
     const btn = document.createElement('button');
     btn.className = 'power-item-btn';
-    btn.innerHTML = `<strong>${pw.name}</strong> — ${pw.desc}`;
+    btn.innerHTML = `<strong>${txt(pw.name, pw.name_en||pw.name)}</strong> — ${txt(pw.desc, pw.desc_en||pw.desc)}`;
     btn.onclick = () => { usePower(playerIdx, i); closePowersModal(); };
     list.appendChild(btn);
   });
@@ -1701,9 +2844,11 @@ function usePower(playerIdx, powerIdx) {
       p.eliminated = false;
       p.powers.splice(powerIdx, 1);
       renderScoreboard();
-      showToast(`${p.name} השתמש בחיים נוספים! מחיקה אחת בוטלה.`, 'success');
+      pushToFirebase();
+      showToast(txt(`${p.name} השתמש בחיים נוספים! מחיקה אחת בוטלה.`,
+                    `${p.name} used Extra Life! One strike removed.`), 'success');
     } else {
-      showToast('אין מחיקות לבטל', 'info');
+      showToast(txt('אין מחיקות לבטל', 'No strikes to remove'), 'info');
     }
   } else if (pw.name === 'החזרת אות') {
     const burned = state.cells.filter(c => c.type === 'letter' && c.burned);
@@ -1716,9 +2861,10 @@ function usePower(playerIdx, powerIdx) {
       renderBoard();
       renderPrizeBoxes();
       renderScoreboard();
-      showToast(`${p.name} החזיר אות שנשרפה!`, 'success');
+      pushToFirebase();
+      showToast(txt(`${p.name} החזיר אות שנשרפה!`, `${p.name} restored a burned letter!`), 'success');
     } else {
-      showToast('אין אותיות שרופות להחזיר', 'info');
+      showToast(txt('אין אותיות שרופות להחזיר', 'No burned letters to restore'), 'info');
     }
   } else if (pw.name === 'הצצה לאות') {
     // Pick a random letter that another player has revealed
@@ -1737,28 +2883,52 @@ function usePower(playerIdx, powerIdx) {
         break;
       }
     }
-    if (!peeked) showToast('אין אותיות חשופות לשחקנים אחרים', 'info');
+    if (!peeked) showToast(txt('אין אותיות חשופות לשחקנים אחרים', 'No letters revealed by other players'), 'info');
   } else if (pw.name === 'רמז כיוון') {
-    // Reveal position hint for a random unrevealed letter
-    const unrevealed = state.cells.filter(c => c.type === 'letter' && !c.revealed && !c.burned);
-    if (unrevealed.length > 0) {
-      const cell = unrevealed[Math.floor(Math.random() * unrevealed.length)];
-      const pos = cell.letterIndex + 1;
+    const bs = state.boardSize;
+    const unrevealedIdxs = state.cells.map((c,i) => (c.type === 'letter' && !c.revealed && !c.burned) ? i : -1).filter(i => i !== -1);
+    if (unrevealedIdxs.length > 0) {
+      const targetIdx = unrevealedIdxs[Math.floor(Math.random() * unrevealedIdxs.length)];
+      // Build group of 3 connected cells including targetIdx
+      const getNeighbors = idx => {
+        const row = Math.floor(idx / bs), col = idx % bs;
+        const n = [];
+        if (row > 0) n.push(idx - bs);
+        if (row < bs - 1) n.push(idx + bs);
+        if (col > 0) n.push(idx - 1);
+        if (col < bs - 1) n.push(idx + 1);
+        return n;
+      };
+      const group = [targetIdx];
+      for (let step = 0; step < 2; step++) {
+        const candidates = new Set();
+        group.forEach(g => getNeighbors(g).forEach(n => { if (!group.includes(n)) candidates.add(n); }));
+        const arr = [...candidates];
+        if (arr.length > 0) group.push(arr[Math.floor(Math.random() * arr.length)]);
+      }
       p.powers.splice(powerIdx, 1);
       renderScoreboard();
-      showToast(`רמז: האות במיקום ${pos} במילה עדיין בלוח!`, 'info');
+      pushToFirebase();
+      // Highlight the group on the board
+      const hintDivs = group.map(idx => document.getElementById(`cell${idx}`)).filter(Boolean);
+      hintDivs.forEach(div => div.classList.add('cell-hint'));
+      const pos = state.cells[targetIdx].letterIndex + 1;
+      showToast(txt(`🔍 רמז: האות מספר ${pos} נמצאת באחת מ-${group.length} המשבצות המסומנות!`,
+                    `🔍 Hint: letter #${pos} is in one of the ${group.length} highlighted cells!`), 'info');
+      // Remove highlight after 8 seconds
+      setTimeout(() => hintDivs.forEach(div => div.classList.remove('cell-hint')), 8000);
     } else {
-      showToast('לא נמצאו אותיות לרמוז עליהן', 'info');
+      showToast(txt('לא נמצאו אותיות לרמוז עליהן', 'No unrevealed letters found to hint'), 'info');
     }
   } else if (pw.name === 'החלפת שאלה') {
-    showToast('כוח זה ישמש אוטומטית בתור הבא', 'info');
+    showToast(txt('כוח זה ישמש אוטומטית בתור הבא', 'This power will activate automatically on your next turn'), 'info');
   }
 }
 
 function openPeekModal(otherName, letter, pos) {
-  document.getElementById('peekDesc').textContent = `הצצה לאות של ${otherName}`;
+  document.getElementById('peekDesc').textContent = txt(`הצצה לאות של ${otherName}`, `Peeking at ${otherName}'s letter`);
   document.getElementById('peekLetter').textContent = letter;
-  document.getElementById('peekDesc2').textContent = `אות מספר ${pos+1} במילה`;
+  document.getElementById('peekDesc2').textContent = txt(`אות מספר ${pos+1} במילה`, `Letter #${pos+1} in the word`);
   document.getElementById('peekModal').classList.add('active');
 }
 function closePeekModal() {
@@ -1771,10 +2941,10 @@ function endGame(winner) {
   clearInterval(state.timerInterval);
   const sorted = [...state.players].sort((a,b) => b.score - a.score);
   const w = winner || sorted[0];
-  document.getElementById('winTitle').textContent = `!${w.name} ניצח`;
-  document.getElementById('winSubtitle').textContent = `מילת הפרס הייתה: ${state.prizeWord}`;
+  document.getElementById('winTitle').textContent = txt(`!${w.name} ניצח`, `${w.name} wins! 🏆`);
+  document.getElementById('winSubtitle').textContent = txt(`מילת הפרס הייתה: ${state.prizeWord}`, `The prize word was: ${state.prizeWord}`);
   const fs = document.getElementById('finalScores');
-  fs.innerHTML = '<div style="font-weight:700;font-size:1rem;margin-bottom:12px;color:var(--text2)">תוצאות סופיות</div>';
+  fs.innerHTML = `<div style="font-weight:700;font-size:1rem;margin-bottom:12px;color:var(--text2)">${txt('תוצאות סופיות','Final Scores')}</div>`;
   sorted.forEach((p, i) => {
     const medals = ['🥇','🥈','🥉','4️⃣'];
     const row = document.createElement('div');
@@ -1783,7 +2953,7 @@ function endGame(winner) {
       <div class="final-rank">${medals[i]}</div>
       <div style="width:10px;height:10px;border-radius:50%;background:${p.color};box-shadow:0 0 6px ${p.color};flex-shrink:0"></div>
       <div class="final-name">${p.name}</div>
-      <div class="final-pts">${p.score} נק'</div>
+      <div class="final-pts">${p.score} ${txt("נק'","pts")}</div>
     `;
     fs.appendChild(row);
   });
@@ -1847,9 +3017,140 @@ function shuffleArray(arr) {
   return arr;
 }
 
+// ===================== RULES MODAL =====================
+const RULES_SLIDES = [
+  {
+    title: "🎮 המשבצת — הצגת המשחק",
+    items: [
+      "משחק טריוויה ואסטרטגיה ל-1 עד 4 שחקנים",
+      "מטרה: לצבור הכי הרבה נקודות",
+      "צועדים על לוח משבצות, עונים על שאלות, חושפים אותיות ומנחשים את מילת הפרס",
+      "ככל שיש יותר שחקנים — הלוח גדול יותר ומילת הפרס ארוכה יותר"
+    ]
+  },
+  {
+    title: "📋 מבנה כללי של המשחק",
+    items: [
+      "בכל תור השחקן בוחר משבצת על הלוח ועונה על שאלת טריוויה",
+      "יש 20 שניות לענות על כל שאלה",
+      "תשובה נכונה מזכה בנקודות המצטברות לאורך המשחק",
+      "מותר לטעות עד פעמיים — בטעות השלישית השחקן מודח מהמשחק",
+      "המשחק מסתיים כשכל המשבצות נחשפות, מישהו מנחש את המילה, או נשאר שחקן אחד"
+    ]
+  },
+  {
+    title: "🗂️ סוגי משבצות",
+    items: [
+      "⭐ משבצת אות — מתחתיה מסתתרת אות ממילת הפרס",
+      "🎁 משבצת הפתעה — מזמנת בונוס ירוק (עוזר) או עונש אדום (פוגע)",
+      "✓ משבצת בונוס — שאלה רגילה עם נקודות",
+      "חשוב: סוג המשבצת נחשף רק אחרי שעונים על השאלה!"
+    ]
+  },
+  {
+    title: "⭐ משבצת אות",
+    items: [
+      "מתחתיה נמצאת אחת מהאותיות שמרכיבות את מילת הפרס",
+      "תשובה נכונה: האות נחשפת בפניך בלבד (+10 נקודות בונוס על חשיפה)",
+      "תשובה שגויה: האות נשרפת לכולם — כבר לא ניתן לחשוף אותה",
+      "האותיות מפוזרות באקראי על הלוח, ללא קשר למיקומן במילה"
+    ]
+  },
+  {
+    title: "🎁 משבצת הפתעה — תשובה נכונה",
+    items: [
+      "פסילה נוספת — יכול לטעות פעם שלישית מעבר לשתיים המותרות",
+      "החלף שאלה — החלפה חד-פעמית של שאלה קשה (ניתן לשמור)",
+      "הצצה — מציץ אצל שחקן אחר וגולה אות ממילת הפרס",
+      "החזרת אות — מחזיר אות שרופה למשחק (רק הוא רואה אותה)",
+      "רמז כיוון — מסמן 3 משבצות צמודות בזהב שאחת מהן היא משבצת אות (8 שניות)",
+      "בונוס — +5 נקודות נוספות"
+    ]
+  },
+  {
+    title: "💥 משבצת הפתעה — תשובה לא נכונה",
+    items: [
+      "קנס כספי — מאבד 10 נקודות מהניקוד שצבר",
+      "הגבלת תנועה — חייב לנוע למשבצת אקראית בתור הבא",
+      "הפסד תור — מדלג על התור הבא שלו"
+    ]
+  },
+  {
+    title: "✅ משבצת בונוס",
+    items: [
+      "משבצת שאין בה אות ולא הפתעה",
+      "תשובה נכונה: +10 נקודות",
+      "תשובה לא נכונה: פסילה רגילה בלבד, ללא עונש נוסף"
+    ]
+  },
+  {
+    title: "🏆 מקרא נקודות",
+    items: [
+      "תשובה נכונה על כל שאלה: +10 נקודות",
+      "חשיפת אות (בנוסף לתשובה נכונה): +10 נקודות",
+      "תשובה נכונה במשבצת הפתעה (בנוסף): +5 נקודות",
+      "ניחוש נכון של מילת הפרס: +50 נקודות!"
+    ]
+  }
+];
+
+let currentSlide = 0;
+
+function openRulesModal() {
+  currentSlide = 0;
+  renderRulesSlide();
+  document.getElementById('rulesModal').classList.add('active');
+}
+
+function closeRulesModal() {
+  document.getElementById('rulesModal').classList.remove('active');
+}
+
+function renderRulesSlide() {
+  const slide = RULES_SLIDES[currentSlide];
+  const total = RULES_SLIDES.length;
+
+  document.getElementById('slideNum').textContent = `${currentSlide + 1} / ${total}`;
+
+  document.getElementById('rulesContent').innerHTML =
+    `<div class="rules-slide">
+      <div class="rules-slide-title">${slide.title}</div>
+      <ul>${slide.items.map(item => `<li>${item}</li>`).join('')}</ul>
+    </div>`;
+
+  // Dots
+  const dotsEl = document.getElementById('rulesDots');
+  dotsEl.innerHTML = '';
+  for (let i = 0; i < total; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'rules-dot' + (i === currentSlide ? ' active' : '');
+    dot.onclick = () => { currentSlide = i; renderRulesSlide(); };
+    dotsEl.appendChild(dot);
+  }
+
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  prevBtn.disabled = currentSlide === 0;
+  prevBtn.onclick = () => { currentSlide--; renderRulesSlide(); };
+
+  const isLast = currentSlide === total - 1;
+  nextBtn.textContent = isLast ? '✓ הבנתי' : 'הבא ←';
+  nextBtn.className = 'rules-nav-btn' + (isLast ? ' finish' : '');
+  nextBtn.onclick = isLast ? closeRulesModal : () => { currentSlide++; renderRulesSlide(); };
+}
+
 // ===================== INIT =====================
 setPlayerCount(2);
 createStars();
+// Restore last player name and check for reconnectable session
+(function initLobby() {
+  const savedName = localStorage.getItem('mshabetzet_name');
+  if (savedName) {
+    const nameInput = document.getElementById('lobbyNameInput');
+    if (nameInput) nameInput.value = savedName;
+  }
+  checkReconnect();
+})();
 </script>
 </body>
 </html>
